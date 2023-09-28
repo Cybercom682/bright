@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LightOnMove</title>
+</head>
+<body style="background-color: rgb(29, 29, 29);">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            (function() {
+                const circle = document.createElement("div");
+                circle.style.width = "10rem";
+                circle.style.height = "10rem";
+                circle.style.borderRadius = "50%";
+                circle.style.position = "absolute";
+                circle.style.pointerEvents = "none";
+                circle.style.boxSizing = "border-box";
+                circle.style.padding = "1rem";
+                circle.style.boxShadow = "rgba(255, 255, 255, 0.07) 1px 1px 10px 10px";
+                circle.style.backgroundColor = "rgba(255, 255, 255, 0.07)";
+                document.body.appendChild(circle);
+                document.addEventListener("mousemove", (e) => {
+                    circle.style.left = e.pageX - circle.offsetWidth / 2 + "px";
+                    circle.style.top = e.pageY - circle.offsetHeight / 2 + "px";
+                });
+            })();
+        });
+    </script>
+
+
+    <div class="card" style="width: 300px; height: 300px; margin-top: 200px; background-color: #333; color: white; text-align: center; margin-left: 200px; padding: 1.5rem;">
+        <h1>Card</h1>
+    </div>
+</body>
+</html>
