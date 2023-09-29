@@ -5,10 +5,10 @@ A simple modern CMS for API-Connection-Testing
 
 ## Features  
 
-- Light/dark mode toggle  
-- Live previews  
-- Fullscreen mode  
-- Cross platform 
+- Simple Frontend Template (Smarty/Bootstrap)
+- Easy Database Connection
+- Plugin Support
+- DragonDrop 
 
 
 ## Feedback  
