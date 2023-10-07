@@ -3,9 +3,9 @@
     "license": "proprietary",
     "description": "API-Connection-Testing CMS",
     "type": "project",
-    "homepage": "https://www.jtl-software.de",
     "require": {
         "studio-42/elfinder": "^2.1",
-        "smarty/smarty":"^4.3"
+        "smarty/smarty":"^4.3",
+        "arlisaha/scssphp": "v0.6.1"
     }
 }

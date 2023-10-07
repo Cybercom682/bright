@@ -4,8 +4,64 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70ea3ec5f2002bf5c353fe263c20da5b",
+    "content-hash": "0073d645a0953d768912da3942b6e6f1",
     "packages": [
+        {
+            "name": "arlisaha/scssphp",
+            "version": "v0.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Arlisaha/scssphp.git",
+                "reference": "fc8c73b7955b22b40792d716d42c8daa5b43a777"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Arlisaha/scssphp/zipball/fc8c73b7955b22b40792d716d42c8daa5b43a777",
+                "reference": "fc8c73b7955b22b40792d716d42c8daa5b43a777",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "kherge/box": "~2.5",
+                "phpunit/phpunit": "~3.7",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "bin": [
+                "bin/pscss"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Leafo\\ScssPhp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Leaf Corcoran",
+                    "email": "leafot@gmail.com",
+                    "homepage": "http://leafo.net"
+                }
+            ],
+            "description": "scssphp is a compiler for SCSS written in PHP.",
+            "homepage": "http://leafo.github.io/scssphp/",
+            "keywords": [
+                "css",
+                "less",
+                "sass",
+                "scss",
+                "stylesheet"
+            ],
+            "support": {
+                "source": "https://github.com/Arlisaha/scssphp/tree/v0.6.1"
+            },
+            "time": "2015-12-13T08:03:38+00:00"
+        },
         {
             "name": "smarty/smarty",
             "version": "v4.3.4",

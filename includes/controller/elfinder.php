@@ -1,6 +1,10 @@
 <?php
 
-class elfinder
+class elfinderConnector
 {
+    public function test()
+    {
+
+    }
 
 }

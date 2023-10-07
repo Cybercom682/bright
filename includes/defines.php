@@ -2,7 +2,7 @@
 
 // Config
 $currentDirectory = __DIR__;
-$parentDirectory = dirname($currentDirectory);
+$parentDirectory = dirname($currentDirectory) . '/';
 
 // Paths
 define('PATH_ROOT', $parentDirectory);
