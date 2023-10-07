@@ -9,6 +9,7 @@ class backend
         $smarty = new Smarty();
         $smarty->setTemplateDir(PATH_TEMPLATES)
             ->setCacheDir(PATH_COMPILEDIR)
+            ->assign('templatePath', PATH_TEMPLATES . $templateName)
             ->setDebugging($debug);
 
         return $smarty->display(PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/' . $startTemplateFile);
