@@ -4,7 +4,9 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/x-icon" href="{$templatePath}/assets/media/icon.ico">
             <title>Admin - Bright v1.0.0.1a</title>
+            <meta charset="utf-8">
             <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>    
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
@@ -19,7 +21,7 @@
         {block name="bright-admin-main-content"}
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2 mh-100 border-end bg-dark text-white">
+                    <div class="col-2 mh-90 border-end bg-dark text-white">
                         {assign var="list" value=['Dashboard' => 'dashboard.tpl','Template' => 'template.tpl']}
                         {include file="../snippets/sidebar.tpl" list=$list}
                     </div>
@@ -27,7 +29,11 @@
                         {if isset($list) && !empty($list)}
                             <div class="tab-content" id="nav-tabContent">
                                 {foreach $list as $key => $item}
-                                    <div class="tab-pane fade show" id="list-{$key}" role="tabpanel" aria-labelledby="list-{$key}-list">{include file="../areas/"|cat:$item}</div>
+                                    <div class="tab-pane fade show" id="list-{$key}" role="tabpanel" aria-labelledby="list-{$key}-list">
+                                        <div class="mt-5">
+                                            {include file="../areas/"|cat:$item}
+                                        </div>
+                                    </div>
                                 {/foreach}
                             </div>
                         {/if}                    

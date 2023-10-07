@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-07 18:16:49
+/* Smarty version 4.3.4, created on 2023-10-07 20:14:15
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\layout\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_652184716ae8c5_84649380',
+  'unifunc' => 'content_65219ff7c52151_88011516',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4c5dae027ddc55ce859b4c7b38bb991edc3a6102' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\layout\\header.tpl',
-      1 => 1696695406,
+      1 => 1696702452,
       2 => 'file',
     ),
   ),
@@ -20,18 +20,18 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_652184716ae8c5_84649380 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65219ff7c52151_88011516 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1782449375652184716aad38_92432013', "bright-admin-header-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17498829865219ff7c478b5_95140485', "bright-admin-header-content");
 }
 /* {block "bright-admin-header-content"} */
-class Block_1782449375652184716aad38_92432013 extends Smarty_Internal_Block
+class Block_17498829865219ff7c478b5_95140485 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bright-admin-header-content' => 
   array (
-    0 => 'Block_1782449375652184716aad38_92432013',
+    0 => 'Block_17498829865219ff7c478b5_95140485',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -44,6 +44,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 /assets/media/logo.png" height="100" width="150" style="filter: invert();">
                 <span class="my-auto text-white"><strong>Administration</strong></span>
             </div>
+            <div class="col-8 border-bottom d-flex justify-content-center">
+                            </div>
+            <div class="col-2 border-bottom d-flex">
+                            </div>
         </div>
     </header>
 <?php

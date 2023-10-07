@@ -1,0 +1,17 @@
+<template name="bootstrap" version="1.0.0.1a" author="master">
+    <config section="template">
+        <setting title="PageTitle" type="text" var="setPageTitle" preValue="My Custom Page" sort="0"/>
+        <setting title="MetaTitle" type="text" var="setMetaTitle" preValue="My Custom Page Meta" sort="5"/>
+        <setting title="Style" type="select" var="setPageStyle" sort="10">
+            <option>Default</option>
+            <option>Dark</option>
+            <option>Light</option>
+        </setting>
+    </config>
+    <sidebar>
+        <area title="Dashboard" tpl="true" file="dashboard.tpl"/>
+        <area title="Template" tpl="true" file="template.tpl"/>
+        <area title="Docs" tpl="false" content="Hier Docs!"/>
+        <area title="ReadMe" tpl="false" file="ReadMe.md"/>
+    </sidebar>
+</template>

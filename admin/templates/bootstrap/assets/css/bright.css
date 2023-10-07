@@ -1,3 +1,6 @@
 .mh-100 {
     min-height: 100vh; /* Mindestens die volle Bildschirmhöhe */
 }
+.mh-90 {
+    min-height: 90vh; /* Mindestens 90% der Bildschirmhöhe */
+}
