@@ -1,60 +1,60 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-07 20:05:02
+/* Smarty version 4.3.4, created on 2023-10-09 08:55:36
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\layout\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65219dceb73061_92917629',
+  'unifunc' => 'content_6523a3e8f19826_34698740',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bcae143de7ba0e1a5ea62ae3ee5efdfb11b66cc2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\layout\\index.tpl',
-      1 => 1696701899,
+      1 => 1696834362,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:./header.tpl' => 1,
-    'file:../snippets/sidebar.tpl' => 1,
+    'file:../snippets/sidebar.tpl' => 2,
     'file:./footer.tpl' => 1,
   ),
 ),false)) {
-function content_65219dceb73061_92917629 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6523a3e8f19826_34698740 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_140332849265219dceb332f3_90767231', "bright-admin-head");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16076028236523a3e8f04f42_68418045', "bright-admin-head");
 ?>
 
     <body>
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_58423175665219dceb3e926_75864082', "bright-admin-header");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14560742796523a3e8f0cd53_13296206', "bright-admin-header");
 ?>
 
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_183845432465219dceb49b87_82803490', "bright-admin-main-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16816731856523a3e8f146a2_81480186', "bright-admin-main-content");
 ?>
 
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_80497081165219dceb70ce3_27999335', "bright-admin-footer");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18544716866523a3e8f17da4_18166688', "bright-admin-footer");
 ?>
 
     </body>
 </html><?php }
 /* {block "bright-admin-head"} */
-class Block_140332849265219dceb332f3_90767231 extends Smarty_Internal_Block
+class Block_16076028236523a3e8f04f42_68418045 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bright-admin-head' => 
   array (
-    0 => 'Block_140332849265219dceb332f3_90767231',
+    0 => 'Block_16076028236523a3e8f04f42_68418045',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -85,12 +85,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "bright-admin-head"} */
 /* {block "bright-admin-header"} */
-class Block_58423175665219dceb3e926_75864082 extends Smarty_Internal_Block
+class Block_14560742796523a3e8f0cd53_13296206 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bright-admin-header' => 
   array (
-    0 => 'Block_58423175665219dceb3e926_75864082',
+    0 => 'Block_14560742796523a3e8f0cd53_13296206',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -103,12 +103,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "bright-admin-header"} */
 /* {block "bright-admin-main-content"} */
-class Block_183845432465219dceb49b87_82803490 extends Smarty_Internal_Block
+class Block_16816731856523a3e8f146a2_81480186 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bright-admin-main-content' => 
   array (
-    0 => 'Block_183845432465219dceb49b87_82803490',
+    0 => 'Block_16816731856523a3e8f146a2_81480186',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -117,32 +117,14 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-2 mh-90 border-end bg-dark text-white">
-                        <?php $_smarty_tpl->_assignInScope('list', array('Dashboard'=>'dashboard.tpl','Template'=>'template.tpl'));?>
-                        <?php $_smarty_tpl->_subTemplateRender("file:../snippets/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('list'=>$_smarty_tpl->tpl_vars['list']->value), 0, false);
+                        <?php $_smarty_tpl->_subTemplateRender("file:../snippets/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('list'=>$_smarty_tpl->tpl_vars['templateConf']->value,'pos'=>'tab'), 0, false);
 ?>
                     </div>
                     <div class="col-10">
-                        <?php if ((isset($_smarty_tpl->tpl_vars['list']->value)) && !empty($_smarty_tpl->tpl_vars['list']->value)) {?>
-                            <div class="tab-content" id="nav-tabContent">
-                                <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['list']->value, 'item', false, 'key');
-$_smarty_tpl->tpl_vars['item']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['item']->value) {
-$_smarty_tpl->tpl_vars['item']->do_else = false;
+                        <div class="tab-content" id="nav-tabContent">
+                            <?php $_smarty_tpl->_subTemplateRender("file:../snippets/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('list'=>$_smarty_tpl->tpl_vars['templateConf']->value,'pos'=>'content'), 0, true);
 ?>
-                                    <div class="tab-pane fade show" id="list-<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
-" role="tabpanel" aria-labelledby="list-<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
--list">
-                                        <div class="mt-5">
-                                            <?php $_smarty_tpl->_subTemplateRender(("../areas/").($_smarty_tpl->tpl_vars['item']->value), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
-?>
-                                        </div>
-                                    </div>
-                                <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                            </div>
-                        <?php }?>                    
+                        </div>
                     </div>
                 </div>
             </div>
@@ -151,12 +133,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block "bright-admin-main-content"} */
 /* {block "bright-admin-footer"} */
-class Block_80497081165219dceb70ce3_27999335 extends Smarty_Internal_Block
+class Block_18544716866523a3e8f17da4_18166688 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bright-admin-footer' => 
   array (
-    0 => 'Block_80497081165219dceb70ce3_27999335',
+    0 => 'Block_18544716866523a3e8f17da4_18166688',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

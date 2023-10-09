@@ -22,21 +22,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-2 mh-90 border-end bg-dark text-white">
-                        {assign var="list" value=['Dashboard' => 'dashboard.tpl','Template' => 'template.tpl']}
-                        {include file="../snippets/sidebar.tpl" list=$list}
+                        {include file="../snippets/sidebar.tpl" list=$templateConf pos='tab'}
                     </div>
                     <div class="col-10">
-                        {if isset($list) && !empty($list)}
-                            <div class="tab-content" id="nav-tabContent">
-                                {foreach $list as $key => $item}
-                                    <div class="tab-pane fade show" id="list-{$key}" role="tabpanel" aria-labelledby="list-{$key}-list">
-                                        <div class="mt-5">
-                                            {include file="../areas/"|cat:$item}
-                                        </div>
-                                    </div>
-                                {/foreach}
-                            </div>
-                        {/if}                    
+                        <div class="tab-content" id="nav-tabContent">
+                            {include file="../snippets/sidebar.tpl" list=$templateConf pos='content'}
+                        </div>
                     </div>
                 </div>
             </div>
