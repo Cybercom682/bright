@@ -1,6 +1,6 @@
 <?php
 
-class XmlReader
+class xmlHelper
 {
     public function readFromXml(string $file, int $returnType)
     {
