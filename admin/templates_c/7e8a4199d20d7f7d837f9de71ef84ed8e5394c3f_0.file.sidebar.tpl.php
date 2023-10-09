@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-09 22:28:51
+/* Smarty version 4.3.4, created on 2023-10-09 23:51:58
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\snippets\sidebar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6524628313f8c9_38559237',
+  'unifunc' => 'content_652475fe524349_62561374',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e8a4199d20d7f7d837f9de71ef84ed8e5394c3f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\snippets\\sidebar.tpl',
-      1 => 1696883327,
+      1 => 1696888314,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6524628313f8c9_38559237 (Smarty_Internal_Template $_smarty_tpl) {
+function content_652475fe524349_62561374 (Smarty_Internal_Template $_smarty_tpl) {
 if ((isset($_smarty_tpl->tpl_vars['list']->value)) && !empty($_smarty_tpl->tpl_vars['list']->value)) {?>
     <?php if ((isset($_smarty_tpl->tpl_vars['pos']->value)) && !empty($_smarty_tpl->tpl_vars['pos']->value)) {?>
         <?php if ($_smarty_tpl->tpl_vars['pos']->value === 'tab') {?>
             <div class="list-group" id="list-tab" role="tablist">
+                <?php $_smarty_tpl->_assignInScope('counter', 0);?>
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['list']->value, 'items');
 $_smarty_tpl->tpl_vars['items']->do_else = true;
@@ -43,12 +44,12 @@ $_smarty_tpl->tpl_vars['section']->do_else = false;
                                 <hr class="my-1">
                             <div class="p-2 mb-1" style="background: #444;">
                             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['section']->value->area, 'area');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['section']->value->area, 'area', false, 'key');
 $_smarty_tpl->tpl_vars['area']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['area']->value) {
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['area']->value) {
 $_smarty_tpl->tpl_vars['area']->do_else = false;
 ?>
-                                    <a class="list-group-item list-group-item-action my-1 p-1 bg-secondary text-white"
+                                    <a class="list-group-item list-group-item-action my-1 p-1 ps-2 <?php if ($_smarty_tpl->tpl_vars['counter']->value === 0) {?>active<?php }?> bg-secondary text-white"
                                        id="list-<?php echo $_smarty_tpl->tpl_vars['area']->value['title'];?>
 -list"
                                        data-bs-toggle="list"
@@ -57,9 +58,14 @@ $_smarty_tpl->tpl_vars['area']->do_else = false;
                                        role="tab"
                                        aria-controls="list-<?php echo $_smarty_tpl->tpl_vars['area']->value['title'];?>
 ">
+                                        <?php if ((isset($_smarty_tpl->tpl_vars['area']->value['icon']))) {?>
+                                            <i class="<?php echo $_smarty_tpl->tpl_vars['area']->value['icon'];?>
+"></i>
+                                        <?php }?>
                                         <?php echo $_smarty_tpl->tpl_vars['area']->value['title'];?>
 
                                     </a>
+                                <?php $_smarty_tpl->_assignInScope('counter', $_smarty_tpl->tpl_vars['counter']->value+1);?>
                                 <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
@@ -75,6 +81,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <?php }?>
         <?php if ($_smarty_tpl->tpl_vars['pos']->value === 'content') {?>
             <div class="tab-content" id="nav-tabContent">
+                <?php $_smarty_tpl->_assignInScope('counterTwo', 0);?>
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['list']->value, 'items');
 $_smarty_tpl->tpl_vars['items']->do_else = true;
@@ -94,7 +101,7 @@ $_smarty_tpl->tpl_vars['area']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['area']->value) {
 $_smarty_tpl->tpl_vars['area']->do_else = false;
 ?>
-                                <div class="tab-pane fade show" id="list-<?php echo $_smarty_tpl->tpl_vars['area']->value['title'];?>
+                                <div class="tab-pane fade <?php if ($_smarty_tpl->tpl_vars['counterTwo']->value === 0) {?>show active<?php }?>" id="list-<?php echo $_smarty_tpl->tpl_vars['area']->value['title'];?>
 " role="tabpanel" aria-labelledby="list-<?php echo $_smarty_tpl->tpl_vars['area']->value['title'];?>
 -list">
                                     <div class="mt-5">
@@ -112,6 +119,7 @@ $_smarty_tpl->tpl_vars['area']->do_else = false;
                                         <?php }?>
                                     </div>
                                 </div>
+                                <?php $_smarty_tpl->_assignInScope('counterTwo', $_smarty_tpl->tpl_vars['counterTwo']->value+1);?>
                             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>

@@ -1,26 +1,20 @@
 <template name="bootstrap" version="1.0.0.1a" author="master">
-    <config section="template">
-        <setting title="PageTitle" type="text" var="setPageTitle" preValue="My Custom Page" sort="0"/>
-        <setting title="MetaTitle" type="text" var="setMetaTitle" preValue="My Custom Page Meta" sort="5"/>
-        <setting title="Style" type="select" var="setPageStyle" sort="10">
-            <option>Default</option>
-            <option>Dark</option>
-            <option>Light</option>
-        </setting>
-    </config>
     <sidebar>
         <section name="General">
-            <area title="Dashboard" tpl="true" file="dashboard.tpl"/>
+            <area icon="fa-solid fa-chart-line" title="Dashboard" tpl="true" file="dashboard.tpl"/>
+            <area icon="fa-solid fa-note-sticky" title="Pages" tpl="false" content="kommt."/>
         </section>
         <section name="Design">
-            <area title="Template" tpl="true" file="template.tpl"/>
+            <area icon="fa-solid fa-swatchbook" title="Template" tpl="true" file="template.tpl"/>
         </section>
-        <section name="Information">
-            <area title="Docs" tpl="false" content="Hier Docs!"/>
-            <area title="ReadMe" tpl="false" file="ReadMe.md"/>
+        <section name="CreatorLab">
+            <area icon="fa-solid fa-plug" title="Plugins" tpl="false" content="Hier Docs!"/>
+            <area icon="fa-regular fa-file" title="ReadMe" tpl="false" file="ReadMe.md"/>
         </section>
         <section name="Settings">
-            <area title="Update" tpl="false" content="Hier Docs!"/>
+            <area icon="fa-solid fa-folder-open" title="Cache" tpl="false" content="Hier Docs!"/>
+            <area icon="fa-regular fa-file-lines" title="Log" tpl="false" content="Hier Docs!"/>
+            <area icon="fa-solid fa-circle-down" title="Update" tpl="false" content="Hier Docs!"/>
         </section>
     </sidebar>
 </template>
