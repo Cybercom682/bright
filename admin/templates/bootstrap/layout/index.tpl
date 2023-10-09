@@ -22,11 +22,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-2 mh-90 border-end bg-dark text-white">
-                        {include file="../snippets/sidebar.tpl" list=$templateConf pos='tab'}
+                        {include file="../snippets/sidebar.tpl" list=$sidebar pos='tab'}
                     </div>
                     <div class="col-10">
                         <div class="tab-content" id="nav-tabContent">
-                            {include file="../snippets/sidebar.tpl" list=$templateConf pos='content'}
+                            {include file="../snippets/sidebar.tpl" list=$sidebar pos='content'}
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,9 @@
 $currentDirectory = __DIR__;
 $parentDirectory = dirname($currentDirectory) . '/';
 
+
+// Bright
+define('BRIGHT_VERSION','v1.0.0.1a');
 // Paths
 define('PATH_ROOT', $parentDirectory);
 define('PATH_ADMIN', 'admin/');

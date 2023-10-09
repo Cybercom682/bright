@@ -19,14 +19,14 @@ class backend
             ->setCacheDir(PATH_COMPILEDIR)
             ->assign('templatePath', PATH_TEMPLATES . $templateName)
             ->assign('serverInfo', (new serverInfo())->getServerInfo())
-            ->assign('templateConf',$this->executeConfig($smarty,PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/template.xml'))
+            ->assign('sidebar',$this->executeConfig($smarty,PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/template.xml')->xpath('//sidebar'))
             ->setDebugging($debug);
         return $smarty->display(PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/' . $startTemplateFile);
     }
 
     private function executeConfig(Smarty $smarty, $templateXml){
         $xml = new xmlHelper();
-        $configArray = $xml->readFromXml($templateXml, 0);
+        $configArray = $xml->readFromXml($templateXml, 1);
         if(!empty($configArray)){
             return $configArray;
         }

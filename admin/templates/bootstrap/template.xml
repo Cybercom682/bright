@@ -9,9 +9,18 @@
         </setting>
     </config>
     <sidebar>
-        <area title="Dashboard" tpl="true" file="dashboard.tpl" section="General"/>
-        <area title="Template" tpl="true" file="template.tpl" section="Settings"/>
-        <area title="Docs" tpl="false" content="Hier Docs!" section="Information"/>
-        <area title="ReadMe" tpl="false" file="ReadMe.md" section="Information"/>
+        <section name="General">
+            <area title="Dashboard" tpl="true" file="dashboard.tpl"/>
+        </section>
+        <section name="Design">
+            <area title="Template" tpl="true" file="template.tpl"/>
+        </section>
+        <section name="Information">
+            <area title="Docs" tpl="false" content="Hier Docs!"/>
+            <area title="ReadMe" tpl="false" file="ReadMe.md"/>
+        </section>
+        <section name="Settings">
+            <area title="Update" tpl="false" content="Hier Docs!"/>
+        </section>
     </sidebar>
 </template>
