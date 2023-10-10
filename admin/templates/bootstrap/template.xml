@@ -8,11 +8,12 @@
             <area icon="fa-solid fa-swatchbook" title="Template" tpl="true" file="template.tpl"/>
         </section>
         <section name="CreatorLab">
-            <area icon="fa-solid fa-plug" title="Plugins" tpl="false" content="Hier Docs!"/>
+            <area icon="fa-solid fa-plug" title="Plugins" tpl="true" file="plugins.tpl"/>
             <area icon="fa-regular fa-file" title="ReadMe" tpl="false" file="ReadMe.md"/>
         </section>
         <section name="Settings">
             <area icon="fa-solid fa-folder-open" title="Cache" tpl="false" content="Hier Docs!"/>
+            <area icon="fa-solid fa-cloud-arrow-down" title="Import / Export" tpl="false" content="Hier Docs!"/>
             <area icon="fa-regular fa-file-lines" title="Log" tpl="false" content="Hier Docs!"/>
             <area icon="fa-solid fa-circle-down" title="Update" tpl="false" content="Hier Docs!"/>
         </section>

@@ -30,7 +30,7 @@
             </div>
         {/if}
         {if $pos === 'content'}
-            <div class="tab-content" id="nav-tabContent">
+            <div class="tab-content overflow-auto mh-90" id="nav-tabContent">
                 {assign var="counterTwo" value=0}
                 {foreach $list as $items}
                     {if isset($items->section)}
@@ -38,16 +38,20 @@
                             {foreach $section->area as $area}
                                 <div class="tab-pane fade {if $counterTwo === 0}show active{/if}" id="list-{$area['title']}" role="tabpanel" aria-labelledby="list-{$area['title']}-list">
                                     <div class="mt-5">
-                                        {if $area['tpl'] == 'true'}
-                                            {include file="../areas/"|cat:$area['file']}
-                                        {elseif $area['tpl'] == 'false' && isset($area['file'])}
-                                            {* Verbesserung geplant! *}
-                                            {include file="../docs/"|cat:$area['file']}
-                                        {else}
-                                            {if isset($area['content'])}
-                                                {$area['content']}
+                                        <div class="container-fluid border rounded p-3">
+                                            <h4>{$area['title']}</h4>
+                                            <hr class="border border-dark border-2 mt-1 mb-3 opacity-75">
+                                            {if $area['tpl'] == 'true'}
+                                                {include file="../areas/"|cat:$area['file']}
+                                            {elseif $area['tpl'] == 'false' && isset($area['file'])}
+                                                {* Verbesserung geplant! *}
+                                                {markdown file=$templatePath|cat:"/docs/"|cat:$area['file']}
+                                            {else}
+                                                {if isset($area['content'])}
+                                                    {$area['content']}
+                                                {/if}
                                             {/if}
-                                        {/if}
+                                        </div>
                                     </div>
                                 </div>
                                 {assign var="counterTwo" value=$counterTwo+1}

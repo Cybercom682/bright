@@ -2,10 +2,18 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/admin" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/admin/controller" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/includes/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/includes/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/smarty/smarty" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/studio-42/elfinder" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/arlisaha/scssphp" />
+      <excludeFolder url="file://$MODULE_DIR$/includes/vendor/erusev/parsedown" />
+      <excludeFolder url="file://$MODULE_DIR$/includes/vendor/parsedown/laravel" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

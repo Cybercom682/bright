@@ -1,22 +1,23 @@
 <?php
 
-namespace controller;
+namespace controller\tools;
 use elFinder;
 use elFinderConnector;
+use Exception;
 
 class elfinderFunc
 {
     /**
      * @throws Exception
      */
-    public function init()
+    public function init(): void
     {
         $opts = array(
             'roots' => array(
                 array(
                     'driver' => 'LocalFileSystem',
                     'path' => '/',
-                    'URL' => 'http://localhost/'
+                    'URL' => 'localhost/bright/admin'
                 )
             )
         );

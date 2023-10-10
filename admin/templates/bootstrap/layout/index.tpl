@@ -22,7 +22,7 @@
             {include file="./header.tpl"}
         {/block}
         {block name="bright-admin-main-content"}
-            <div class="container-fluid">
+            <div class="container-fluid overflow-auto">
                 <div class="row">
                     <div class="col-2 mh-90 border-end bg-dark text-white">
                         {include file="../snippets/sidebar.tpl" list=$sidebar pos='tab'}
