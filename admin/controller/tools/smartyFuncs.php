@@ -69,9 +69,7 @@ class smartyFuncs {
 
             return $parsed;
         } else {
-
             return "Fehler: Die Datei existiert nicht oder ist nicht lesbar. Pfad: " . $file;
         }
     }
-
 }
