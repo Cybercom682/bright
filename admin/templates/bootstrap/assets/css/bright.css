@@ -1,6 +1,7 @@
-.mh-100 {
-    min-height: 100vh; /* Mindestens die volle Bildschirmhöhe */
+.sb-h{
+    min-height: calc(100vh - 140px);
 }
-.mh-90 {
-    min-height: 90vh; /* Mindestens 90% der Bildschirmhöhe */
+.sb-th{
+    max-height: calc(100vh - 325px);
+    overflow: auto;
 }

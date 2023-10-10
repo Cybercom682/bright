@@ -1,6 +1,7 @@
 <?php
 
 use controller\serverInfo;
+use controller\tools\poster;
 use controller\visitors;
 use tools\smartyFuncs;
 
@@ -10,6 +11,7 @@ require(PATH_ROOT . PATH_INCLUDES . '/controller/xmlHelper.php');
 require(PATH_ROOT . PATH_ADMIN . '/controller/serverInfo.php');
 require(PATH_ROOT . PATH_ADMIN . '/controller/visitors.php');
 require(PATH_ROOT . PATH_ADMIN . '/controller/tools/smartyFuncs.php');
+require(PATH_ROOT . PATH_ADMIN . '/controller/tools/poster.php');
 
 class backend
 {
@@ -25,6 +27,8 @@ class backend
             ->assign('serverInfo', (new serverInfo())->getServerInfo())
             ->assign('sidebar',$this->executeConfig($smarty,PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/template.xml')->xpath('//sidebar'))
             ->setDebugging($debug);
+
+        (new poster($smarty));
 
         return $smarty->display(PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/' . $startTemplateFile);
     }
