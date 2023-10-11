@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-11 14:45:55
+/* Smarty version 4.3.4, created on 2023-10-11 20:34:30
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\filemanager.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_652699031fe058_02480111',
+  'unifunc' => 'content_6526eab620de15_41513679',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_652699031fe058_02480111 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6526eab620de15_41513679 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="elfinder"></div>
 
 <?php echo '<script'; ?>

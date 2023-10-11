@@ -9,13 +9,13 @@ class database
     private $pass;
     private $connection;
 
-    public function __construct(string $server, string $dbName, string $user, string $pass, int $port = null)
+    public function __construct()
     {
-        $this->server = $server;
-        $this->port = $port;
-        $this->dbName = $dbName;
-        $this->user = $user;
-        $this->pass = $pass;
+        $this->server = DB_SERVER;
+        $this->port = DB_PORT;
+        $this->dbName = DB_NAME;
+        $this->user = DB_USER;
+        $this->pass = DB_PASS;
     }
 
     public function connect()

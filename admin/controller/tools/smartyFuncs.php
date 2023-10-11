@@ -6,16 +6,19 @@ use Parsedown;
 
 class smartyFuncs {
     private $smarty;
+    private $database;
 
-    public function __construct($smarty) {
+    public function __construct($smarty,$database) {
         $this->smarty = $smarty;
+        $this->database = $database;
         $this->registerSmartyFunctions();
     }
 
     private function registerSmartyFunctions() {
         $this->smarty->registerPlugin('function', 'alert', array($this, 'smartyBootstrapAlert'))
             ->registerPlugin('block', 'card', array($this, 'smartyBootstrapCard'))
-            ->registerPlugin('function', 'markdown', array($this, 'smartyMarkdownParser'));
+            ->registerPlugin('function', 'markdown', array($this, 'smartyMarkdownParser'))
+            ->registerPlugin('function', 'DataTable', array($this, 'getDatabaseTable'));
     }
 
     public function smartyBootstrapAlert($params, $smarty) {
@@ -71,5 +74,24 @@ class smartyFuncs {
         } else {
             return "Fehler: Die Datei existiert nicht oder ist nicht lesbar. Pfad: " . $file;
         }
+    }
+    function getDatabaseTable($params, $smarty) {
+        $table = $params['table'];
+        $assign = $params['assign'];
+
+        $data = $this->getDatabase()->query('SELECT * FROM ' . $table);
+
+        if (isset($assign) && !empty($assign)) {
+            $smarty->assign($assign, $data);
+        }
+    }
+
+
+    /**
+     * @return mixed
+     */
+    private function getDatabase()
+    {
+        return $this->database;
     }
 }

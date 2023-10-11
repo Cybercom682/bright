@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-11 14:45:55
+/* Smarty version 4.3.4, created on 2023-10-11 21:52:41
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\dashboard.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65269903150701_39133311',
+  'unifunc' => 'content_6526fd091e0ff7_62573778',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '395dc70e0083a966cb2b0a437746619be38e2c8c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\areas\\dashboard.tpl',
-      1 => 1696932719,
+      1 => 1697053958,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65269903150701_39133311 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6526fd091e0ff7_62573778 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="row">
-    <div class="col-4">
+    <div class="col-4 p-3">
         <?php $_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['card'][0][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['card'][0][0] : null;
 if (!is_callable(array($_block_plugin1, 'smartyBootstrapCard'))) {
 throw new SmartyException('block tag \'card\' not callable or registered');
@@ -52,7 +52,7 @@ echo $_block_plugin1->smartyBootstrapCard(array('title'=>"Visitors"), ob_get_cle
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
     </div>
-    <div class="col-4">
+    <div class="col-4 p-3">
         <?php $_block_plugin2 = isset($_smarty_tpl->smarty->registered_plugins['block']['card'][0][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['card'][0][0] : null;
 if (!is_callable(array($_block_plugin2, 'smartyBootstrapCard'))) {
 throw new SmartyException('block tag \'card\' not callable or registered');
@@ -71,7 +71,7 @@ echo $_block_plugin2->smartyBootstrapCard(array('title'=>"Last Changes.."), ob_g
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
     </div>
-    <div class="col-4">
+    <div class="col-4 p-3">
         <?php $_block_plugin3 = isset($_smarty_tpl->smarty->registered_plugins['block']['card'][0][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['card'][0][0] : null;
 if (!is_callable(array($_block_plugin3, 'smartyBootstrapCard'))) {
 throw new SmartyException('block tag \'card\' not callable or registered');
@@ -102,6 +102,53 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </div>
         <?php $_block_repeat=false;
 echo $_block_plugin3->smartyBootstrapCard(array('title'=>"Server-Informations"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
+}
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
+    </div>
+    <div class="col-4 p-3">
+        <?php $_block_plugin4 = isset($_smarty_tpl->smarty->registered_plugins['block']['card'][0][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['card'][0][0] : null;
+if (!is_callable(array($_block_plugin4, 'smartyBootstrapCard'))) {
+throw new SmartyException('block tag \'card\' not callable or registered');
+}
+$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('card', array('title'=>"Open Tickets"));
+$_block_repeat=true;
+echo $_block_plugin4->smartyBootstrapCard(array('title'=>"Open Tickets"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>
+        <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['DataTable'][0], array( array('table'=>"ttickets",'assign'=>"items"),$_smarty_tpl ) );?>
+
+            <table class="table table-hover border">
+                <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Prio</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['items']->value, 'item', false, 'key');
+$_smarty_tpl->tpl_vars['item']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['item']->value) {
+$_smarty_tpl->tpl_vars['item']->do_else = false;
+?>
+                    <?php if ($_smarty_tpl->tpl_vars['key']->value <= 3) {?>
+                    <tr>
+                        <td><?php echo $_smarty_tpl->tpl_vars['item']->value['cTitle'];?>
+</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['item']->value['cPrio'];?>
+</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['item']->value['cStatus'];?>
+</td>
+                    </tr>
+                    <?php }?>
+                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                </tbody>
+            </table>
+        <?php $_block_repeat=false;
+echo $_block_plugin4->smartyBootstrapCard(array('title'=>"Open Tickets"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
     </div>

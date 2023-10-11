@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-4">
+    <div class="col-4 p-3">
         {card title="Visitors"}
             <div class="row">
                 <div class="col-3 d-grid">
@@ -15,7 +15,7 @@
             </div>
         {/card}
     </div>
-    <div class="col-4">
+    <div class="col-4 p-3">
         {card title="Last Changes.."}
             <ul>
                 <li>added [SmartyFunc] - 09.10.2023 [10:30 Uhr]</li>
@@ -23,7 +23,7 @@
             </ul>
         {/card}
     </div>
-    <div class="col-4">
+    <div class="col-4 p-3">
         {card title="Server-Informations"}
             <div class="row">
                 {foreach $serverInfo as $title => $info}
@@ -35,6 +35,31 @@
                         </div>
                 {/foreach}
             </div>
+        {/card}
+    </div>
+    <div class="col-4 p-3">
+        {card title="Open Tickets"}
+        {DataTable table="ttickets" assign="items"}
+            <table class="table table-hover border">
+                <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Prio</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach $items as $key => $item}
+                    {if $key <= 3}
+                    <tr>
+                        <td>{$item['cTitle']}</td>
+                        <td>{$item['cPrio']}</td>
+                        <td>{$item['cStatus']}</td>
+                    </tr>
+                    {/if}
+                {/foreach}
+                </tbody>
+            </table>
         {/card}
     </div>
 </div>

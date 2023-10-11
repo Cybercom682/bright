@@ -18,6 +18,8 @@
       <path value="$PROJECT_DIR$/includes/vendor/arlisaha/scssphp" />
       <path value="$PROJECT_DIR$/includes/vendor/parsedown/laravel" />
       <path value="$PROJECT_DIR$/includes/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/includes/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/includes/vendor/psr/log" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">

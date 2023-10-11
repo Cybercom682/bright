@@ -2,7 +2,7 @@
     <sidebar>
         <section name="General">
             <area icon="fa-solid fa-chart-line" title="Dashboard" tpl="true" file="dashboard.tpl"/>
-            <area icon="fa-solid fa-note-sticky" title="Pages" tpl="false" content="kommt."/>
+            <area icon="fa-solid fa-note-sticky" title="Pages" tpl="true" file="pages.tpl"/>
         </section>
         <section name="Design">
             <area icon="fa-solid fa-swatchbook" title="Template" tpl="true" file="template.tpl"/>

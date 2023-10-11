@@ -3,11 +3,14 @@
 use controller\serverInfo;
 use controller\tools\poster;
 use controller\visitors;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use tools\smartyFuncs;
 
 $adminPath = dirname(__DIR__);
 require(PATH_ROOT . PATH_INCLUDES . '/vendor/autoload.php');
 require(PATH_ROOT . PATH_INCLUDES . '/controller/xmlHelper.php');
+require(PATH_ROOT . PATH_INCLUDES . '/controller/database.php');
 require(PATH_ROOT . PATH_ADMIN . '/controller/serverInfo.php');
 require(PATH_ROOT . PATH_ADMIN . '/controller/visitors.php');
 require(PATH_ROOT . PATH_ADMIN . '/controller/tools/smartyFuncs.php');
@@ -17,8 +20,13 @@ class backend
 {
     public function init(string $templateName, string $startTemplateFile, bool $debug = false)
     {
+        $logger = new Logger('backend');
+        $logger->pushHandler(new StreamHandler(PATH_ROOT . 'log/log.txt'));
+        
+        $db = new database();
+        $db->connect();
         $smarty = new Smarty();
-        (new smartyFuncs($smarty));
+        (new smartyFuncs($smarty,$db));
         (new visitors())->initSmarty($smarty);
 
         $smarty->setTemplateDir(PATH_TEMPLATES)
