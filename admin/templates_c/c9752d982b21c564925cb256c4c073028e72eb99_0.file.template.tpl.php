@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-10 22:05:27
+/* Smarty version 4.3.4, created on 2023-10-11 07:53:29
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\template.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6525ae877927a0_01235689',
+  'unifunc' => 'content_652638595f1765_30308408',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../areas/config/form.tpl' => 2,
   ),
 ),false)) {
-function content_6525ae877927a0_01235689 (Smarty_Internal_Template $_smarty_tpl) {
+function content_652638595f1765_30308408 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container-fluid border rounded p-3">
     <?php $_smarty_tpl->_assignInScope('formID', "tpl_saveForm");?>
     <?php $_smarty_tpl->_subTemplateRender("file:../areas/config/form.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('id'=>$_smarty_tpl->tpl_vars['formID']->value,'head'=>true), 0, false);

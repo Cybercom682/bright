@@ -13,7 +13,22 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="../{$includesPath}libs/codemirror/lib/codemirror.js"></script>
+            <link rel="stylesheet" href="../{$includesPath}libs/codemirror/addon/lint/lint.css">
+            <script src="../{$includesPath}libs/codemirror/mode/javascript/javascript.js"></script>
+            <script src="../{$includesPath}libs/codemirror/mode/css/css.js"></script>
+            <script src="../{$includesPath}libs/codemirror/addon/lint/lint.js"></script>
+            <script src="../{$includesPath}libs/codemirror/addon/lint/javascript-lint.js"></script>
+            <script src="../{$includesPath}libs/codemirror/addon/lint/json-lint.js"></script>
+            <script src="../{$includesPath}libs/codemirror/addon/lint/css-lint.js"></script>
+            <link rel="stylesheet" href="../{$includesPath}libs/codemirror/lib/codemirror.css">
+            <link rel="stylesheet" href="../{$includesPath}libs/codemirror/addon/hint/show-hint.css">
+            <script src="../{$includesPath}libs/codemirror/addon/edit/matchbrackets.js"></script>
+            <script src="../{$includesPath}libs/codemirror/addon/hint/show-hint.js"></script>
+            <script src="../{$includesPath}libs/codemirror/addon/hint/css-hint.js"></script>
             <link rel="stylesheet" href="{$templatePath}/assets/css/bright.css">
+            <script src="../{$includesPath}libs/ckeditor/ckeditor.js"></script>
+
             <script src="{$templatePath}/assets/js/bright.js"></script>
         </head>
     {/block}

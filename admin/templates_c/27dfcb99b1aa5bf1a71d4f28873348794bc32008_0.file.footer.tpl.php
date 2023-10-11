@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-10 22:05:27
+/* Smarty version 4.3.4, created on 2023-10-11 07:53:29
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\layout\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6525ae877e7306_25553695',
+  'unifunc' => 'content_6526385965f7a5_67337151',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6525ae877e7306_25553695 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6526385965f7a5_67337151 (Smarty_Internal_Template $_smarty_tpl) {
 ?><footer class="container-fluid sticky-bottom py-2 bg-dark text-white">
     <span>&copy; Bright 2024</span>
 </footer><?php }

@@ -11,6 +11,7 @@
         <section name="CreatorLab">
             <area icon="fa-solid fa-plug" title="Plugins" tpl="true" file="plugins.tpl"/>
             <area icon="fa-regular fa-file" title="ReadMe" tpl="false" file="ReadMe.md"/>
+            <area icon="fa-regular fa-file" title="Tickets" tpl="true" file="tickets.tpl"/>
         </section>
         <section name="Settings">
             <area icon="fa-solid fa-folder-open" title="Cache" tpl="true" file="cache.tpl"/>
