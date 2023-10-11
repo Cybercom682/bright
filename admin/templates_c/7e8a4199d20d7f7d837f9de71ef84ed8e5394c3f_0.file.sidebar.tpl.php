@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-11 07:53:29
+/* Smarty version 4.3.4, created on 2023-10-11 14:45:55
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\snippets\sidebar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_652638595c68e5_85310028',
+  'unifunc' => 'content_6526990312e739_27855063',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e8a4199d20d7f7d837f9de71ef84ed8e5394c3f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\snippets\\sidebar.tpl',
-      1 => 1696963969,
+      1 => 1697013478,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_652638595c68e5_85310028 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6526990312e739_27855063 (Smarty_Internal_Template $_smarty_tpl) {
 if ((isset($_smarty_tpl->tpl_vars['list']->value)) && !empty($_smarty_tpl->tpl_vars['list']->value)) {?>
     <?php if ((isset($_smarty_tpl->tpl_vars['pos']->value)) && !empty($_smarty_tpl->tpl_vars['pos']->value)) {?>
         <?php if ($_smarty_tpl->tpl_vars['pos']->value === 'tab') {?>
@@ -106,8 +106,14 @@ $_smarty_tpl->tpl_vars['area']->do_else = false;
 -list">
                                     <div class="mt-5">
                                         <div class="container-fluid border rounded p-3 overflow-auto">
-                                            <h4><?php echo $_smarty_tpl->tpl_vars['area']->value['title'];?>
-</h4>
+                                            <h4>
+                                                <?php if ((isset($_smarty_tpl->tpl_vars['area']->value['icon']))) {?>
+                                                    <i class="<?php echo $_smarty_tpl->tpl_vars['area']->value['icon'];?>
+"></i>&nbsp;
+                                                <?php }?>
+                                                <?php echo $_smarty_tpl->tpl_vars['area']->value['title'];?>
+
+                                            </h4>
                                             <hr class="border border-dark border-2 mt-1 mb-3 opacity-75">
                                             <div class="container-fluid sb-th">
                                                 <?php if ($_smarty_tpl->tpl_vars['area']->value['tpl'] == 'true') {?>

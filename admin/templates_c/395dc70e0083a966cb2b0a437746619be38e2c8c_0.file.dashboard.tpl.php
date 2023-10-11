@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-11 07:53:29
+/* Smarty version 4.3.4, created on 2023-10-11 14:45:55
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\dashboard.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_652638595dfb41_03623234',
+  'unifunc' => 'content_65269903150701_39133311',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_652638595dfb41_03623234 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65269903150701_39133311 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="row">
     <div class="col-4">
         <?php $_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['card'][0][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['card'][0][0] : null;

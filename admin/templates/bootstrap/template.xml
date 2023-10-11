@@ -11,11 +11,11 @@
         <section name="CreatorLab">
             <area icon="fa-solid fa-plug" title="Plugins" tpl="true" file="plugins.tpl"/>
             <area icon="fa-regular fa-file" title="ReadMe" tpl="false" file="ReadMe.md"/>
-            <area icon="fa-regular fa-file" title="Tickets" tpl="true" file="tickets.tpl"/>
+            <area icon="fa-solid fa-ticket" title="Tickets" tpl="true" file="tickets.tpl"/>
         </section>
         <section name="Settings">
             <area icon="fa-solid fa-folder-open" title="Cache" tpl="true" file="cache.tpl"/>
-            <area icon="fa-solid fa-cloud-arrow-down" title="Backup" tpl="false" content="Hier Docs!"/>
+            <area icon="fa-solid fa-cloud-arrow-down" title="FileManager" tpl="true" file="filemanager.tpl"/>
             <area icon="fa-regular fa-file-lines" title="Log" tpl="false" content="Hier Docs!"/>
             <area icon="fa-solid fa-circle-down" title="Update" tpl="false" content="Hier Docs!"/>
         </section>

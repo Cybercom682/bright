@@ -25,6 +25,7 @@ class backend
             ->setCacheDir(PATH_COMPILEDIR)
             ->assign('templatePath', PATH_TEMPLATES . $templateName)
             ->assign('rootPath', PATH_ROOT)
+            ->assign('vendorPath', PATH_INCLUDES . 'vendor/')
             ->assign('includesPath',PATH_INCLUDES)
             ->assign('serverInfo', (new serverInfo())->getServerInfo())
             ->assign('sidebar',$this->executeConfig($smarty,PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/template.xml')->xpath('//sidebar'))

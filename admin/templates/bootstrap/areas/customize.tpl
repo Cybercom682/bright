@@ -18,17 +18,24 @@
 
 {literal}
     <script>
-        var editor_css = CodeMirror.fromTextArea(document.getElementById("css-area"), {
-            extraKeys: {"Ctrl-Space": "autocomplete"},
-            lineNumbers: true,
-            matchBrackets: true,
-            mode: "text/x-gss"
-        });
-        var editor_js = CodeMirror.fromTextArea(document.getElementById("js-area"), {
-            extraKeys: {"Ctrl-Space": "autocomplete"},
-            lineNumbers: true,
-            matchBrackets: true,
-            mode: "text/javascript"
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            var editor_css = CodeMirror.fromTextArea(document.getElementById("css-area"), {
+                extraKeys: {"Ctrl-Space": "autocomplete"},
+                lineNumbers: true,
+                matchBrackets: true,
+                mode: "text/x-gss",
+                viewportMargin: 3
+            });
+            var editor_js = CodeMirror.fromTextArea(document.getElementById("js-area"), {
+                extraKeys: {"Ctrl-Space": "autocomplete"},
+                lineNumbers: true,
+                matchBrackets: true,
+                mode: "text/javascript",
+                viewportMargin: 3
+            });
+
+            editor_css.refresh();
+            editor_js.refresh();
+        })
     </script>
 {/literal}

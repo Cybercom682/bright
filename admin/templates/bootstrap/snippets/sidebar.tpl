@@ -39,7 +39,12 @@
                                 <div class="tab-pane fade {if $counterTwo === 0}show active{/if}" id="list-{$area['title']}" role="tabpanel" aria-labelledby="list-{$area['title']}-list">
                                     <div class="mt-5">
                                         <div class="container-fluid border rounded p-3 overflow-auto">
-                                            <h4>{$area['title']}</h4>
+                                            <h4>
+                                                {if isset($area['icon'])}
+                                                    <i class="{$area['icon']}"></i>&nbsp;
+                                                {/if}
+                                                {$area['title']}
+                                            </h4>
                                             <hr class="border border-dark border-2 mt-1 mb-3 opacity-75">
                                             <div class="container-fluid sb-th">
                                                 {if $area['tpl'] == 'true'}

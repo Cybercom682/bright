@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-11 08:23:57
+/* Smarty version 4.3.4, created on 2023-10-11 14:45:55
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\customize.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65263f7daa2d57_57297293',
+  'unifunc' => 'content_652699031961b4_65647972',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '64ef8f6fa520848876a9fe6a4e781ce43327143a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\areas\\customize.tpl',
-      1 => 1697005434,
+      1 => 1697012010,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65263f7daa2d57_57297293 (Smarty_Internal_Template $_smarty_tpl) {
+function content_652699031961b4_65647972 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container-fluid">
     <span class="mt-2">CustomCSS - Editor</span>
     <hr class="my-1">
@@ -42,18 +42,25 @@ function content_65263f7daa2d57_57297293 (Smarty_Internal_Template $_smarty_tpl)
 
     <?php echo '<script'; ?>
 >
-        var editor_css = CodeMirror.fromTextArea(document.getElementById("css-area"), {
-            extraKeys: {"Ctrl-Space": "autocomplete"},
-            lineNumbers: true,
-            matchBrackets: true,
-            mode: "text/x-gss"
-        });
-        var editor_js = CodeMirror.fromTextArea(document.getElementById("js-area"), {
-            extraKeys: {"Ctrl-Space": "autocomplete"},
-            lineNumbers: true,
-            matchBrackets: true,
-            mode: "text/javascript"
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            var editor_css = CodeMirror.fromTextArea(document.getElementById("css-area"), {
+                extraKeys: {"Ctrl-Space": "autocomplete"},
+                lineNumbers: true,
+                matchBrackets: true,
+                mode: "text/x-gss",
+                viewportMargin: 3
+            });
+            var editor_js = CodeMirror.fromTextArea(document.getElementById("js-area"), {
+                extraKeys: {"Ctrl-Space": "autocomplete"},
+                lineNumbers: true,
+                matchBrackets: true,
+                mode: "text/javascript",
+                viewportMargin: 3
+            });
+
+            editor_css.refresh();
+            editor_js.refresh();
+        })
     <?php echo '</script'; ?>
 >
 <?php }

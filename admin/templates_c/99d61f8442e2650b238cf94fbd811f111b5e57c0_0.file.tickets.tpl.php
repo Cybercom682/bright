@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-11 09:38:47
+/* Smarty version 4.3.4, created on 2023-10-11 14:45:55
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\tickets.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65265107013371_57957534',
+  'unifunc' => 'content_652699031c9121_29834627',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65265107013371_57957534 (Smarty_Internal_Template $_smarty_tpl) {
+function content_652699031c9121_29834627 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container-fluid">
     <span class="mt-2">Create Ticket</span>
     <hr class="my-1">
