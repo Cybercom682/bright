@@ -22,9 +22,10 @@ class backend
     {
         $logger = new Logger('backend');
         $logger->pushHandler(new StreamHandler(PATH_ROOT . 'log/log.txt'));
-        
+
         $db = new database();
         $db->connect();
+
         $smarty = new Smarty();
         (new smartyFuncs($smarty,$db));
         (new visitors())->initSmarty($smarty);
@@ -36,7 +37,7 @@ class backend
             ->assign('vendorPath', PATH_INCLUDES . 'vendor/')
             ->assign('includesPath',PATH_INCLUDES)
             ->assign('serverInfo', (new serverInfo())->getServerInfo())
-            ->assign('sidebar',$this->executeConfig($smarty,PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/template.xml')->xpath('//sidebar'))
+            ->assign('sidebar',$this->executeConfig(PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/template.xml')->xpath('//sidebar'))
             ->setDebugging($debug);
 
         (new poster($smarty));
@@ -44,7 +45,7 @@ class backend
         return $smarty->display(PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/' . $startTemplateFile);
     }
 
-    private function executeConfig(Smarty $smarty, $templateXml){
+    private function executeConfig($templateXml){
         $xml = new xmlHelper();
         $configArray = $xml->readFromXml($templateXml, 1);
         if(!empty($configArray)){
