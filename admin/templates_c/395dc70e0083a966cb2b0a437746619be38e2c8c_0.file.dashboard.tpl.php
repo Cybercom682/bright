@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-11 21:52:41
+/* Smarty version 4.3.4, created on 2023-10-12 12:03:47
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\dashboard.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6526fd091e0ff7_62573778',
+  'unifunc' => 'content_6527c4835c1860_48292123',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '395dc70e0083a966cb2b0a437746619be38e2c8c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\areas\\dashboard.tpl',
-      1 => 1697053958,
+      1 => 1697105023,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6526fd091e0ff7_62573778 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6527c4835c1860_48292123 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="row">
     <div class="col-4 p-3">
         <?php $_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['card'][0][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['card'][0][0] : null;
@@ -149,6 +149,44 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </table>
         <?php $_block_repeat=false;
 echo $_block_plugin4->smartyBootstrapCard(array('title'=>"Open Tickets"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
+}
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
+    </div>
+    <div class="col-4 p-3">
+        <?php $_block_plugin5 = isset($_smarty_tpl->smarty->registered_plugins['block']['card'][0][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['card'][0][0] : null;
+if (!is_callable(array($_block_plugin5, 'smartyBootstrapCard'))) {
+throw new SmartyException('block tag \'card\' not callable or registered');
+}
+$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('card', array('title'=>"Logs"));
+$_block_repeat=true;
+echo $_block_plugin5->smartyBootstrapCard(array('title'=>"Logs"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>
+            <div class="row">
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['logValues']->value, 'log', false, 'key');
+$_smarty_tpl->tpl_vars['log']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['log']->value) {
+$_smarty_tpl->tpl_vars['log']->do_else = false;
+?>
+                    <?php if ($_smarty_tpl->tpl_vars['key']->value <= 2) {?>
+                    <div class="col-12">
+                        <span><?php echo $_smarty_tpl->tpl_vars['log']->value;?>
+</span>
+                        <hr>
+                    </div>
+                    <?php }?>
+                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                <div class="col-12">
+                    <a class="btn btn-secondary btn-sm w-100" onclick="goToTab(this,'#nav-tabContent')" href="#list-Log">
+                        show all
+                    </a>
+                </div>
+            </div>
+        <?php $_block_repeat=false;
+echo $_block_plugin5->smartyBootstrapCard(array('title'=>"Logs"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
     </div>

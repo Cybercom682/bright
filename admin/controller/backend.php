@@ -21,7 +21,8 @@ class backend
     public function init(string $templateName, string $startTemplateFile, bool $debug = false)
     {
         $logger = new Logger('backend');
-        $logger->pushHandler(new StreamHandler(PATH_ROOT . 'log/log.txt'));
+        $logFilePath = PATH_ROOT . 'log/log.txt';
+        $logger->pushHandler(new StreamHandler($logFilePath));
 
         $db = new database();
         $db->connect();
@@ -35,6 +36,7 @@ class backend
             ->assign('templatePath', PATH_TEMPLATES . $templateName)
             ->assign('rootPath', PATH_ROOT)
             ->assign('vendorPath', PATH_INCLUDES . 'vendor/')
+            ->assign('logValues',$this->getArrayFromFile($logFilePath))
             ->assign('includesPath',PATH_INCLUDES)
             ->assign('serverInfo', (new serverInfo())->getServerInfo())
             ->assign('sidebar',$this->executeConfig(PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/template.xml')->xpath('//sidebar'))
@@ -52,5 +54,17 @@ class backend
             return $configArray;
         }
         return false;
+    }
+
+    public function getArrayFromFile($filepath)
+    {
+        $output = array();
+        if (file_exists($filepath)) {
+            $fileContent = file($filepath, FILE_IGNORE_NEW_LINES);
+            if ($fileContent !== false) {
+                $output = $fileContent;
+            }
+        }
+        return $output;
     }
 }

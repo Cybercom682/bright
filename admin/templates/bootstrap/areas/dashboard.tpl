@@ -62,4 +62,23 @@
             </table>
         {/card}
     </div>
+    <div class="col-4 p-3">
+        {card title="Logs"}
+            <div class="row">
+                {foreach $logValues as $key => $log}
+                    {if $key <= 2}
+                    <div class="col-12">
+                        <span>{$log}</span>
+                        <hr>
+                    </div>
+                    {/if}
+                {/foreach}
+                <div class="col-12">
+                    <a class="btn btn-secondary btn-sm w-100" onclick="goToTab(this,'#nav-tabContent')" href="#list-Log">
+                        show all
+                    </a>
+                </div>
+            </div>
+        {/card}
+    </div>
 </div>
