@@ -17,8 +17,10 @@ class smartyFuncs {
     private function registerSmartyFunctions() {
         $this->smarty->registerPlugin('function', 'alert', array($this, 'smartyBootstrapAlert'))
             ->registerPlugin('block', 'card', array($this, 'smartyBootstrapCard'))
+            ->registerPlugin('block', 'modal', array($this,'smartyBootstrapModal'))
             ->registerPlugin('function', 'markdown', array($this, 'smartyMarkdownParser'))
-            ->registerPlugin('function', 'DataTable', array($this, 'getDatabaseTable'));
+            ->registerPlugin('function', 'DataTable', array($this, 'getDatabaseTable'))
+            ->registerPlugin('function', 'LogFormat', array($this, 'formatArrayLog'));
     }
 
     public function smartyBootstrapAlert($params, $smarty) {
@@ -61,6 +63,44 @@ class smartyFuncs {
         }
     }
 
+    public function smartyBootstrapModal($params, $content, $smarty, &$repeat){
+        if ($repeat) {
+            $btnTitle = $params['btnText'] ?? '';
+            $output = '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">'. $btnTitle . '</button>';
+            $output .= '
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">' . $btnTitle . '</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">';
+
+            return $output;
+        } else {
+            $showButtons = $params['optBtns'] ?? false;
+            $output = $content;
+            $output .= '</div>';
+            if($showButtons) {
+                $output .= '
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                    </div>';
+            }
+            $output .='
+                </div>
+            </div>
+        </div>';
+            }
+            return $output;
+        }
+
+
+
+
+
     function smartyMarkdownParser($params, $smarty){
         $file = $params['file'];
 
@@ -84,6 +124,19 @@ class smartyFuncs {
         if (isset($assign) && !empty($assign)) {
             $smarty->assign($assign, $data);
         }
+    }
+
+    function formatArrayLog($params, $smarty){
+        $string = $params['string'];
+        //beispiel-String: [2023-10-11T23:07:21.995168+02:00] daily.INFO: Test [] []
+        //beispiel-String: [2023-10-12T11:48:14.366804+02:00] backend.DEBUG: simple debug test [] []
+
+        if(str_contains($string,'INFO')){
+            return '<strong>INFO</strong>' . $string;
+        }else if(str_contains($string,'DEBUG')){
+            return '<strong>DEBUG</strong>' . $string;
+        }
+        return $string;
     }
 
 

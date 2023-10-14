@@ -68,7 +68,7 @@
                 {foreach $logValues as $key => $log}
                     {if $key <= 2}
                     <div class="col-12">
-                        <span>{$log}</span>
+                        <span>{LogFormat string=$log}</span>
                         <hr>
                     </div>
                     {/if}

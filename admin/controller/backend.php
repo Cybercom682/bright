@@ -65,6 +65,8 @@ class backend
                 $output = $fileContent;
             }
         }
+
         return $output;
     }
+
 }

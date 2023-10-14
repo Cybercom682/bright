@@ -7,7 +7,7 @@ class migration
     public function execute()
     {
         if(isset($_POST)){
-            
+
         }
     }
 }

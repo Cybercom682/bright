@@ -1,7 +1,31 @@
-<div id="elfinder"></div>
+<?php
+/* Smarty version 4.3.4, created on 2023-10-14 18:52:18
+  from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\filemanager.tpl' */
 
-{literal}
-    <script>
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.4',
+  'unifunc' => 'content_652ac742cfaa64_88735919',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '535f051662954030acc97b36c8df2b92946587ad' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\areas\\filemanager.tpl',
+      1 => 1697302336,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_652ac742cfaa64_88735919 (Smarty_Internal_Template $_smarty_tpl) {
+?><div id="elfinder"></div>
+
+
+    <?php echo '<script'; ?>
+>
         define('elFinderConfig', {
             // elFinder options (REQUIRED)
             // Documentation for client options:
@@ -54,5 +78,7 @@
                 'elfinder': {}
             }
         });
-    </script>
-{/literal}
+    <?php echo '</script'; ?>
+>
+<?php }
+}

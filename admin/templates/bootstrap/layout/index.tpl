@@ -30,6 +30,7 @@
             <script src="../{$includesPath}libs/ckeditor/ckeditor.js"></script>
             <link rel="stylesheet" type="text/css" href="../{$vendorPath}studio-42/elfinder/css/elfinder.min.css">
             <script src="../{$vendorPath}studio-42/elfinder/js/elfinder.min.js"></script>
+            <script src="../{$vendorPath}studio-42/elfinder/main.default.js"></script>
             <script src="{$templatePath}/assets/js/bright.js"></script>
         </head>
     {/block}
