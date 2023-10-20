@@ -5,10 +5,8 @@
     ensuring that the application runs smoothly and stays current without the need to delve into technical details.
 </p>
 <div class="container-fluid border rounded p-3">
-    {assign var="formID_cache" value="cache_clearForm"}
-    {include file="../areas/config/form.tpl" id=$formID_cache head=true}
-    {* Hidden Values *}
+    <form method="post">
     <input type="hidden" name="action" value="cache">
-    {* Setting Values *}
-    {include file="../areas/config/form.tpl" id=$formID_cache foot=true button=true btnText="Clear Cache"}
+        <button type="submit">clear cache</button>
+    </form>
 </div>

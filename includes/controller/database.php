@@ -58,6 +58,40 @@ class database
             echo "Fehler beim Einfügen der Daten: " . $e->getMessage();
         }
     }
+
+    public function updateData($table, $data, $idColumn, $id)
+    {
+        try {
+            // Erstelle die SET-Klausel für die Aktualisierung
+            $setClause = "";
+            foreach ($data as $column => $value) {
+                $setClause .= "$column = '$value', ";
+            }
+            $setClause = rtrim($setClause, ', '); // Letztes Komma entfernen
+
+            // Stelle die SQL-Abfrage zusammen
+            $sql = "UPDATE $table SET $setClause WHERE $idColumn = $id";
+
+            // Führe die Aktualisierungsabfrage aus
+            $this->connection->exec($sql);
+        } catch (PDOException $e) {
+            echo "Fehler beim Aktualisieren der Daten: " . $e->getMessage();
+        }
+    }
+
+    public function deleteById($table, $idColumn, $id)
+    {
+        try {
+            // Stelle die SQL-Abfrage für das Löschen zusammen
+            $sql = "DELETE FROM $table WHERE $idColumn = $id";
+
+            // Führe die Löschabfrage aus
+            $this->connection->exec($sql);
+        } catch (PDOException $e) {
+            echo "Fehler beim Löschen der Daten: " . $e->getMessage();
+        }
+    }
+
     public function getNextID($table, $idColumn)
     {
         try {
@@ -66,7 +100,6 @@ class database
             $result = $this->connection->query($sql);
             $row = $result->fetch(PDO::FETCH_ASSOC);
 
-            // Wenn es keine Einträge in der Tabelle gibt, beginne mit ID 1, ansonsten max_id + 1
             $nextID = ($row['max_id'] === null) ? 1 : $row['max_id'] + 1;
 
             return $nextID;

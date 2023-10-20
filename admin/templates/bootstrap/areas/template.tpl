@@ -1,6 +1,5 @@
 <div class="container-fluid border rounded p-3">
     {assign var="formID" value="tpl_saveForm"}
-    {include file="../areas/config/form.tpl" id=$formID head=true}
         {* Hidden Values *}
         <input type="hidden" name="tpl_name" value="Bright">
         <input type="hidden" name="tpl_version" value="1.0.0.1a">
@@ -14,5 +13,4 @@
                 <option value="3">Three</option>
             </select>
         </div>
-    {include file="../areas/config/form.tpl" id=$formID foot=true button=true}
 </div>

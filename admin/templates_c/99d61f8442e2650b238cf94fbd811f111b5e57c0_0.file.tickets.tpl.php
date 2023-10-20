@@ -1,27 +1,26 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-20 22:10:11
+/* Smarty version 4.3.4, created on 2023-10-20 22:49:19
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\tickets.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6532dea34d1c98_57014127',
+  'unifunc' => 'content_6532e7cf7f8858_23710849',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '99d61f8442e2650b238cf94fbd811f111b5e57c0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\areas\\tickets.tpl',
-      1 => 1697832473,
+      1 => 1697834911,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:../areas/config/form.tpl' => 2,
   ),
 ),false)) {
-function content_6532dea34d1c98_57014127 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6532e7cf7f8858_23710849 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\bright\\includes\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.count.php','function'=>'smarty_modifier_count',),));
 echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['DataTable'][0], array( array('table'=>"ttickets",'assign'=>"items"),$_smarty_tpl ) );?>
 
@@ -94,9 +93,7 @@ $_block_repeat=true;
 echo $_block_plugin1->smartyBootstrapModal(array('btnText'=>"Create Ticket"), null, $_smarty_tpl, $_block_repeat);
 while ($_block_repeat) {
 ob_start();?>
-        <?php $_smarty_tpl->_assignInScope('formID', "ticket_create");?>
-        <?php $_smarty_tpl->_subTemplateRender("file:../areas/config/form.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('id'=>$_smarty_tpl->tpl_vars['formID']->value,'head'=>true), 0, false);
-?>
+        <form method="post">
                 <input type="hidden" name="action" value="create">
         <input type="hidden" name="handler" value="ticket">
                 <div class="row">
@@ -124,8 +121,8 @@ ob_start();?>
                 <textarea class="form-control w-100" id="t-task" name="t_task" placeholder="content..." style="min-height: 150px;"></textarea>
             </div>
         </div>
-        <?php $_smarty_tpl->_subTemplateRender("file:../areas/config/form.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('id'=>$_smarty_tpl->tpl_vars['formID']->value,'foot'=>true,'button'=>true,'btnText'=>"Create"), 0, true);
-?>
+            <button type="submit">sfwef</button>
+        </form>
     <?php $_block_repeat=false;
 echo $_block_plugin1->smartyBootstrapModal(array('btnText'=>"Create Ticket"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }

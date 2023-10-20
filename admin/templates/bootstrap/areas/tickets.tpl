@@ -45,8 +45,7 @@
         <div class="border px-2 text-bg-secondary">{$items|count}</div>
     </div>
     {modal btnText="Create Ticket"}
-        {assign var="formID" value="ticket_create"}
-        {include file="../areas/config/form.tpl" id=$formID head=true}
+        <form method="post">
         {* Hidden Values *}
         <input type="hidden" name="action" value="create">
         <input type="hidden" name="handler" value="ticket">
@@ -76,7 +75,8 @@
                 <textarea class="form-control w-100" id="t-task" name="t_task" placeholder="content..." style="min-height: 150px;"></textarea>
             </div>
         </div>
-        {include file="../areas/config/form.tpl" id=$formID foot=true button=true btnText="Create"}
+            <button type="submit">sfwef</button>
+        </form>
     {/modal}
 </div>
 

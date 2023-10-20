@@ -27,6 +27,7 @@ class poster
     public function init(): void
     {
         if (isset($_POST['action'])){
+            var_dump($_POST);
             switch ($_POST['action']){
                 case 'create' : $this->create($_POST['handler']);
                     break;
