@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-21 01:28:26
+/* Smarty version 4.3.4, created on 2023-10-21 01:34:49
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\cache.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65330d1a263d62_68080811',
+  'unifunc' => 'content_65330e99ec2fc8_79695922',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65330d1a263d62_68080811 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65330e99ec2fc8_79695922 (Smarty_Internal_Template $_smarty_tpl) {
 ?><p>
     This powerful function empowers users to purge the entire cache within your application. By executing this action,
     they can ensure that all cached data is removed, which is helpful for keeping the application up-to-date,

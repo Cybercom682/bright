@@ -12,18 +12,22 @@ class alert
         return $output;
     }
 
-    private function queryJS($selektor,$function,$content): string
+    private function queryJS($selektor, $function, $content): string
     {
-        return '$("'.$selektor.'").'.$function.'("'.$content.'")';
+        $onLoad = 'DOMContentLoaded'; // Korrekte Schreibweise
+        $initalContent = '$("' . $selektor . '").' . $function . '("' . $content . '")';
+        $loadVia = 'document.addEventListener("' . $onLoad . '", function() {' . $initalContent . '});'; // Event-Listener korrigiert
+
+        return $loadVia;
     }
 
     private function alert($type, $message): string
     {
-        return "<div class='alert alert-".$type." m-3'>".$message."</div>";
+        return "<div class='alert alert-" . $type . " m-3'>" . $message . "</div>";
     }
 
     public function execute($type, $message): void
     {
-        echo $this->initScript($this->queryJS('#nav-tabContent','before',$this->alert($type,$message)));
+        echo $this->initScript($this->queryJS('#nav-tabContent', 'before', $this->alert($type, $message)));
     }
 }

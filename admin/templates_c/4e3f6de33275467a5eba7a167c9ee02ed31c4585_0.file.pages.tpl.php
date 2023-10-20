@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-21 01:28:26
+/* Smarty version 4.3.4, created on 2023-10-21 01:34:49
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\pages.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65330d1a1fd0f3_42468223',
+  'unifunc' => 'content_65330e99e3fa46_90577321',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65330d1a1fd0f3_42468223 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65330e99e3fa46_90577321 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container-fluid">
     <span class="mt-2">Create Page</span>
     <hr class="my-1">
