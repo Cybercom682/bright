@@ -19,7 +19,7 @@
             <td>{$plugin["@attributes"]['version']}</td>
             <td>{$plugin["@attributes"]['validate']}</td>
             <td class="mx-auto"><i class="fa-solid fa-check text-success"></i></td>
-            <td>Options at the Future..</td>
+            <td>Options at the Future...</td>
         </tr>
     {/foreach}
     </tbody>

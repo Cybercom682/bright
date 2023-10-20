@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-21 00:51:36
+/* Smarty version 4.3.4, created on 2023-10-21 01:28:26
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\plugins.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_653304781a67c6_59319552',
+  'unifunc' => 'content_65330d1a22b5e9_69726534',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2e1af37246ec87abe3d3936e1e259ae2265a023d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\areas\\plugins.tpl',
-      1 => 1697842293,
+      1 => 1697842657,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_653304781a67c6_59319552 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65330d1a22b5e9_69726534 (Smarty_Internal_Template $_smarty_tpl) {
 ?><table class="table table-hover border">
     <thead>
     <tr>
@@ -52,7 +52,7 @@ $_smarty_tpl->tpl_vars['plugin']->do_else = false;
             <td><?php echo $_smarty_tpl->tpl_vars['plugin']->value["@attributes"]['validate'];?>
 </td>
             <td class="mx-auto"><i class="fa-solid fa-check text-success"></i></td>
-            <td>Options at the Future..</td>
+            <td>Options at the Future...</td>
         </tr>
     <?php
 }

@@ -1,16 +1,20 @@
 <?php
 
 namespace controller\tools;
-
+include (__DIR__ . '/alert.php');
 class cache
 {
     /**
      * @param $smarty
-     * @return mixed
      */
-    public function clearTemplateCache($smarty): mixed
+    public function clearTemplateCache($smarty): void
     {
-        return $smarty->clearAllCache();
+        try {
+            $smarty->clearAllCache();
+            (new alert())->execute('success','Erfolgt!');
+        }catch (\Exception $e){
+            (new alert())->execute('danger',$e);
+        }
     }
 
     /**
