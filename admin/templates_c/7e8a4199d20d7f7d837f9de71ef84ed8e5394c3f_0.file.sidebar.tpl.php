@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-14 16:18:45
+/* Smarty version 4.3.4, created on 2023-10-20 21:49:15
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\snippets\sidebar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_652aa3450fab23_56778336',
+  'unifunc' => 'content_6532d9bb9fd5b1_33607020',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_652aa3450fab23_56778336 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6532d9bb9fd5b1_33607020 (Smarty_Internal_Template $_smarty_tpl) {
 if ((isset($_smarty_tpl->tpl_vars['list']->value)) && !empty($_smarty_tpl->tpl_vars['list']->value)) {?>
     <?php if ((isset($_smarty_tpl->tpl_vars['pos']->value)) && !empty($_smarty_tpl->tpl_vars['pos']->value)) {?>
         <?php if ($_smarty_tpl->tpl_vars['pos']->value === 'tab') {?>

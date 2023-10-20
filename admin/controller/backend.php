@@ -27,6 +27,7 @@ class backend
         $db = new database();
         $db->connect();
 
+
         $smarty = new Smarty();
         (new smartyFuncs($smarty,$db));
         (new visitors())->initSmarty($smarty);
@@ -42,7 +43,7 @@ class backend
             ->assign('sidebar',$this->executeConfig(PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/template.xml')->xpath('//sidebar'))
             ->setDebugging($debug);
 
-        (new poster($smarty));
+        (new poster($smarty,$db))->init();
 
         return $smarty->display(PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/' . $startTemplateFile);
     }

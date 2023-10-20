@@ -6,7 +6,7 @@
         </section>
         <section name="Design">
             <area icon="fa-solid fa-swatchbook" title="Template" tpl="true" file="template.tpl"/>
-            <area icon="fa-solid fa-swatchbook" title="Customize" tpl="true" file="customize.tpl"/>
+            <area icon="fa-solid fa-code" title="Customize" tpl="true" file="customize.tpl"/>
         </section>
         <section name="CreatorLab">
             <area icon="fa-solid fa-plug" title="Plugins" tpl="true" file="plugins.tpl"/>
