@@ -5,8 +5,7 @@
     ensuring that the application runs smoothly and stays current without the need to delve into technical details.
 </p>
 <div class="container-fluid border rounded p-3">
-    <form method="post">
-    <input type="hidden" name="action" value="cache">
-        <button type="submit">clear cache</button>
-    </form>
+    {form id="cForm" method="POST" action="cache"}
+        <button class="btn btn-primary" type="submit">clear cache</button>
+    {/form}
 </div>

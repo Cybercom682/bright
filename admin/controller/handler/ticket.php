@@ -62,7 +62,7 @@ class ticket
     public function delete($db)
     {
         try {
-            $db->deleteData('ttickets','kTicket',$_POST['t_id']);
+            $db->deleteById('ttickets','kTicket',$_POST['t_id']);
         }catch (Exception $e){
             //echo $e;
         }

@@ -45,38 +45,36 @@
         <div class="border px-2 text-bg-secondary">{$items|count}</div>
     </div>
     {modal btnText="Create Ticket"}
-        <form method="post">
-        {* Hidden Values *}
-        <input type="hidden" name="action" value="create">
-        <input type="hidden" name="handler" value="ticket">
-        {* Setting Values *}
-        <div class="row">
-            <div class="col-12 mb-3 form-group">
-                <label for="t-title" class="form-label">Title:</label>&nbsp;
-                <input id="t-title" class="form-control w-100" name="t_title" placeholder="Title">
+        {form id="tForm" method="POST" action="create" handler="ticket"}
+            <div class="row">
+                <div class="col-12 mb-3 form-group">
+                    <label for="t-title" class="form-label">Title:</label>&nbsp;
+                    <input id="t-title" class="form-control w-100" name="t_title" placeholder="Title">
+                </div>
+                <div class="col-6 mb-3 form-group">
+                    <label for="t-prio" class="form-label">Prio:</label>&nbsp;
+                    <select id="t-prio" class="form-select w-100" name="t_prio" placeholder="Medium">
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <div class="col-6 mb-3 form-group">
+                    <label for="t-status" class="form-label">Status:</label>&nbsp;
+                    <select id="t-status" class="form-select w-100" name="t_status" placeholder="open">
+                        <option value="open">Open</option>
+                        <option value="closed"></option>
+                    </select>
+                </div>
+                <div class="col-12 mb-3 form-group">
+                    <label for="t-task" class="form-label">Task:</label>&nbsp;
+                    <textarea class="form-control w-100" id="t-task" name="t_task" placeholder="content..." style="min-height: 150px;"></textarea>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">create</button>
+                </div>
             </div>
-            <div class="col-6 mb-3 form-group">
-                <label for="t-prio" class="form-label">Prio:</label>&nbsp;
-                <select id="t-prio" class="form-select w-100" name="t_prio" placeholder="Medium">
-                    <option value="high">High</option>
-                    <option value="medium">Medium</option>
-                    <option value="low">Low</option>
-                </select>
-            </div>
-            <div class="col-6 mb-3 form-group">
-                <label for="t-status" class="form-label">Status:</label>&nbsp;
-                <select id="t-status" class="form-select w-100" name="t_status" placeholder="open">
-                    <option value="open">Open</option>
-                    <option value="closed"></option>
-                </select>
-            </div>
-            <div class="col-12 mb-3 form-group">
-                <label for="t-task" class="form-label">Task:</label>&nbsp;
-                <textarea class="form-control w-100" id="t-task" name="t_task" placeholder="content..." style="min-height: 150px;"></textarea>
-            </div>
-        </div>
-            <button type="submit">sfwef</button>
-        </form>
+        {/form}
     {/modal}
 </div>
 
@@ -88,10 +86,22 @@
 
         var hiddenInput = document.createElement('input');
         hiddenInput.type = 'hidden';
-        hiddenInput.name = 'delete';
-        hiddenInput.value = id;
+        hiddenInput.name = 'action';
+        hiddenInput.value = 'delete';
+
+        var hiddenInput2 = document.createElement('input');
+        hiddenInput2.type = 'hidden';
+        hiddenInput2.name = 'handler';
+        hiddenInput2.value = 'ticket';
+
+        var idValue = document.createElement('input');
+        idValue.type = 'hidden';
+        idValue.name = 't_id';
+        idValue.value = id;
 
         form.appendChild(hiddenInput);
+        form.appendChild(hiddenInput2);
+        form.appendChild(idValue);
 
         document.body.appendChild(form);
 

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-20 22:47:50
+/* Smarty version 4.3.4, created on 2023-10-21 00:09:34
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\template.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6532e7769afb11_20268620',
+  'unifunc' => 'content_6532fa9e16cef6_24364401',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6532e7769afb11_20268620 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6532fa9e16cef6_24364401 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container-fluid border rounded p-3">
     <?php $_smarty_tpl->_assignInScope('formID', "tpl_saveForm");?>
                 <input type="hidden" name="tpl_name" value="Bright">

@@ -18,6 +18,7 @@ class smartyFuncs {
         $this->smarty->registerPlugin('function', 'alert', array($this, 'smartyBootstrapAlert'))
             ->registerPlugin('block', 'card', array($this, 'smartyBootstrapCard'))
             ->registerPlugin('block', 'modal', array($this,'smartyBootstrapModal'))
+            ->registerPlugin('block', 'form', array($this,'smartyBootstrapForm'))
             ->registerPlugin('function', 'markdown', array($this, 'smartyMarkdownParser'))
             ->registerPlugin('function', 'DataTable', array($this, 'getDatabaseTable'))
             ->registerPlugin('function', 'LogFormat', array($this, 'formatArrayLog'));
@@ -98,7 +99,25 @@ class smartyFuncs {
         }
 
 
+    public function smartyBootstrapForm($params, $content, $smarty, &$repeat)
+    {
+        if ($repeat) {
+            $id = isset($params['id']) ? $params['id'] : 'formID';
+            $method = isset($params['method']) ? $params['method'] : 'POST';
+            $action = isset($params['action']) ? $params['action'] : 'create';
+            $handler = isset($params['handler']) ? $params['handler'] : 'unset';
 
+            $output = '<form id="'.$id.'" method="'.$method.'">';
+            $output .= '<input type="hidden" name="action" value="'.$action.'">';
+            $output .= '<input type="hidden" name="handler" value="'.$handler.'">';
+
+            return $output;
+        } else {
+            $output = $content . '</form>';
+
+            return $output;
+        }
+    }
 
 
     function smartyMarkdownParser($params, $smarty){

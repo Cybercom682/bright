@@ -1,0 +1,8 @@
+<plugin
+        author="Bright"
+        title="Test Plugin"
+        description="a simple Test"
+        version="1.0.1"
+        website="none"
+        validate="test_plugin">
+</plugin>

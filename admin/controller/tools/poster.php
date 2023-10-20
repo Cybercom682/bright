@@ -27,13 +27,12 @@ class poster
     public function init(): void
     {
         if (isset($_POST['action'])){
-            var_dump($_POST);
             switch ($_POST['action']){
                 case 'create' : $this->create($_POST['handler']);
                     break;
-                case 'update' : echo 'update!';
+                case 'update' : $this->update($_POST['handler']);
                     break;
-                case 'delete' : echo 'delete!';
+                case 'delete' : $this->delete($_POST['handler']);
                     break;
                 case 'cache' : (new cache())->clearTemplateCache($this->getSmarty());
                     break;
@@ -54,6 +53,24 @@ class poster
         switch ($handler){
             case 'ticket' : (new ticket())->create($this->getDb());
             break;
+            case 'page' : echo 'ser';
+        }
+    }
+
+    private function update($handler)
+    {
+        switch ($handler){
+            case 'ticket' : (new ticket())->update($this->getDb());
+                break;
+            case 'page' : echo 'ser';
+        }
+    }
+
+    private function delete($handler)
+    {
+        switch ($handler){
+            case 'ticket' : (new ticket())->delete($this->getDb());
+                break;
             case 'page' : echo 'ser';
         }
     }
