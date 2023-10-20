@@ -1,0 +1,9 @@
+<plugin validate="test_plugin">
+    <informations>
+        <title>Test Plugin</title>
+        <description>a simple test</description>
+        <version>1.0</version>
+        <author>Bright</author>
+        <website>localhost@bright.dev</website>
+    </informations>
+</plugin>
