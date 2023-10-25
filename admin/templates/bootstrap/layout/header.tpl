@@ -23,9 +23,9 @@
                                 <i class="fa-regular fa-message"></i>
                                 Notify
                             </a>
-                            <ul class="dropdown-menu p-3">
+                            <ul class="dropdown-menu rounded-0 p-0" style="width: 300px;">
                                 <li>
-                                    <div class="alert alert-info">Nothing..</div>
+                                    {include file="../areas/config/notify.tpl"}
                                 </li>
                             </ul>
                         </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-25 08:44:09
+/* Smarty version 4.3.4, created on 2023-10-25 16:35:56
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\dashboard.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6538b939100133_20931540',
+  'unifunc' => 'content_653927cc4169d2_79798042',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '395dc70e0083a966cb2b0a437746619be38e2c8c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\areas\\dashboard.tpl',
-      1 => 1698216247,
+      1 => 1698244555,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6538b939100133_20931540 (Smarty_Internal_Template $_smarty_tpl) {
+function content_653927cc4169d2_79798042 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="row">
     <div class="col-4 p-3">
         <?php $_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['card'][0][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['card'][0][0] : null;
@@ -117,7 +117,7 @@ while ($_block_repeat) {
 ob_start();?>
         <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['DataTable'][0], array( array('table'=>"ttickets",'assign'=>"items"),$_smarty_tpl ) );?>
 
-            <table class="table table-hover border">
+            <table class="table table-sm table-hover border">
                 <thead>
                 <tr>
                     <th scope="col">Title</th>
@@ -147,7 +147,7 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </tbody>
             </table>
-            <div class="col-12">
+            <div class="w-100">
                 <button class="btn btn-outline-dark border-0 btn-sm w-100" onclick="openTab('list-Tickets-list')">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     <span>show all</span>
@@ -168,29 +168,43 @@ $_block_repeat=true;
 echo $_block_plugin5->smartyBootstrapCard(array('title'=>"Logs"), null, $_smarty_tpl, $_block_repeat);
 while ($_block_repeat) {
 ob_start();?>
-            <div class="row">
+            <table class="table table-hover table-sm border">
+                <thead>
+                <tr>
+                    <th scope="col">Handler</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Message</th>
+                </tr>
+                </thead>
+                <tbody>
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['logValues']->value, 'log', false, 'key');
 $_smarty_tpl->tpl_vars['log']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['log']->value) {
 $_smarty_tpl->tpl_vars['log']->do_else = false;
 ?>
-                    <?php if ($_smarty_tpl->tpl_vars['key']->value <= 2) {?>
-                    <div class="col-12">
-                        <span><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['LogFormat'][0], array( array('string'=>$_smarty_tpl->tpl_vars['log']->value),$_smarty_tpl ) );?>
-</span>
-                        <hr>
-                    </div>
+                    <?php if ($_smarty_tpl->tpl_vars['key']->value <= 3) {?>
+                        <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['LogFormat'][0], array( array('string'=>$_smarty_tpl->tpl_vars['log']->value,'assign'=>"logged"),$_smarty_tpl ) );?>
+
+                        <tr>
+                            <td><?php echo $_smarty_tpl->tpl_vars['logged']->value['handler'];?>
+</td>
+                            <td><?php echo $_smarty_tpl->tpl_vars['logged']->value['type'];?>
+</td>
+                            <td><?php echo $_smarty_tpl->tpl_vars['logged']->value['message'];?>
+</td>
+                        </tr>
                     <?php }?>
                 <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                <div class="col-12">
-                    <button class="btn btn-outline-dark border-0 btn-sm w-100" onclick="openTab('list-Log-list')">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        <span>show all</span>
-                    </button>
-                </div>
+                </tbody>
+            </table>
+            <div class="w-100">
+                <button class="btn btn-outline-dark border-0 btn-sm w-100" onclick="openTab('list-Log-list')">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span>show all</span>
+                </button>
             </div>
         <?php $_block_repeat=false;
 echo $_block_plugin5->smartyBootstrapCard(array('title'=>"Logs"), ob_get_clean(), $_smarty_tpl, $_block_repeat);

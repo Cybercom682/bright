@@ -21,7 +21,7 @@ class smartyFuncs {
             ->registerPlugin('block', 'form', array($this,'smartyBootstrapForm'))
             ->registerPlugin('function', 'markdown', array($this, 'smartyMarkdownParser'))
             ->registerPlugin('function', 'DataTable', array($this, 'getDatabaseTable'))
-            ->registerPlugin('function', 'LogFormat', array($this, 'formatArrayLog'));
+            ->registerPlugin('function', 'LogFormat', array($this, 'parseMonologLogString'));
     }
 
     public function smartyBootstrapAlert($params, $smarty) {
@@ -145,17 +145,29 @@ class smartyFuncs {
         }
     }
 
-    function formatArrayLog($params, $smarty){
-        $string = $params['string'];
-        //beispiel-String: [2023-10-11T23:07:21.995168+02:00] daily.INFO: Test [] []
-        //beispiel-String: [2023-10-12T11:48:14.366804+02:00] backend.DEBUG: simple debug test [] []
+    function parseMonologLogString($params, $smarty) {
+        $logString = $params['string'];
+        $assign = $params['assign'];
 
-        if(str_contains($string,'INFO')){
-            return '<strong>INFO</strong>' . $string;
-        }else if(str_contains($string,'DEBUG')){
-            return '<strong>DEBUG</strong>' . $string;
+        $logData = array();
+
+        if (preg_match('/^\[(.*?)\] (\w+)\.(\w+): (.+?)(?: \[\])*$/', $logString, $matches)) {
+            $logData['date'] = $matches[1];
+            $logData['handler'] = $matches[2];
+            $logData['type'] = $matches[3];
+
+            $messageParts = explode(': ', $matches[4], 2);
+            if (count($messageParts) === 2) {
+                $logData['title'] = $messageParts[0];
+                $logData['message'] = $messageParts[1];
+            } else {
+                $logData['title'] = '';
+                $logData['message'] = $messageParts[0];
+            }
         }
-        return $string;
+        if(isset($assign) && !empty($assign)){
+            $smarty->assign($assign,$logData);
+        }
     }
 
 

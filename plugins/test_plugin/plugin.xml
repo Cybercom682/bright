@@ -5,4 +5,21 @@
         website="none"
         licence="none"
         validate="test_plugin">
+    <backend>
+        <widgets>
+            <widget type="simple">
+                <!-- Smarty Template File -->
+                <file>test_widget</file>
+            </widget>
+        </widgets>
+        <settings>
+            <setting type="text" initValue="test value" sort="5">
+                <!-- Assign for PHP Config Var -->
+                <assign>test_value</assign>
+            </setting>
+        </settings>
+    </backend>
+    <frontend>
+        <!-- in progress -->
+    </frontend>
 </plugin>

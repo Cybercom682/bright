@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-24 14:36:23
+/* Smarty version 4.3.4, created on 2023-10-25 12:43:22
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\customize.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6537ba478ab2c9_00871052',
+  'unifunc' => 'content_6538f14a830f03_69661361',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6537ba478ab2c9_00871052 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6538f14a830f03_69661361 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container-fluid">
     <span class="mt-2">CustomCSS - Editor</span>
     <hr class="my-1">

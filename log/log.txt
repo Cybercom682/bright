@@ -7,3 +7,4 @@
 [2023-10-12T11:48:27.537698+02:00] backend.DEBUG: simple debug test [] []
 [2023-10-12T11:48:27.723575+02:00] backend.DEBUG: simple debug test [] []
 [2023-10-12T11:48:27.873292+02:00] backend.DEBUG: simple debug test [] []
+[2023-10-25T16:35:03.322481+02:00] backend.DEBUG: message [] []

@@ -1,37 +1,38 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-24 14:36:23
+/* Smarty version 4.3.4, created on 2023-10-25 12:43:22
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\layout\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6537ba477fff77_38359450',
+  'unifunc' => 'content_6538f14a7b23b7_70611560',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4c5dae027ddc55ce859b4c7b38bb991edc3a6102' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\layout\\header.tpl',
-      1 => 1698135446,
+      1 => 1698217435,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:../areas/config/notify.tpl' => 1,
   ),
 ),false)) {
-function content_6537ba477fff77_38359450 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6538f14a7b23b7_70611560 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16329989026537ba477ff886_07938114', "bright-admin-header-content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9678167346538f14a7b1356_76238505', "bright-admin-header-content");
 }
 /* {block "bright-admin-header-content"} */
-class Block_16329989026537ba477ff886_07938114 extends Smarty_Internal_Block
+class Block_9678167346538f14a7b1356_76238505 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bright-admin-header-content' => 
   array (
-    0 => 'Block_16329989026537ba477ff886_07938114',
+    0 => 'Block_9678167346538f14a7b1356_76238505',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -62,9 +63,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                 <i class="fa-regular fa-message"></i>
                                 Notify
                             </a>
-                            <ul class="dropdown-menu p-3">
+                            <ul class="dropdown-menu rounded-0 p-0" style="width: 300px;">
                                 <li>
-                                    <div class="alert alert-info">Nothing..</div>
+                                    <?php $_smarty_tpl->_subTemplateRender("file:../areas/config/notify.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
                                 </li>
                             </ul>
                         </div>

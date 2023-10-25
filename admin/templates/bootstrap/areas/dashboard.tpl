@@ -40,7 +40,7 @@
     <div class="col-4 p-3">
         {card title="Open Tickets"}
         {DataTable table="ttickets" assign="items"}
-            <table class="table table-hover border">
+            <table class="table table-sm table-hover border">
                 <thead>
                 <tr>
                     <th scope="col">Title</th>
@@ -60,7 +60,7 @@
                 {/foreach}
                 </tbody>
             </table>
-            <div class="col-12">
+            <div class="w-100">
                 <button class="btn btn-outline-dark border-0 btn-sm w-100" onclick="openTab('list-Tickets-list')">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     <span>show all</span>
@@ -70,21 +70,32 @@
     </div>
     <div class="col-4 p-3">
         {card title="Logs"}
-            <div class="row">
+            <table class="table table-hover table-sm border">
+                <thead>
+                <tr>
+                    <th scope="col">Handler</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Message</th>
+                </tr>
+                </thead>
+                <tbody>
                 {foreach $logValues as $key => $log}
-                    {if $key <= 2}
-                    <div class="col-12">
-                        <span>{LogFormat string=$log}</span>
-                        <hr>
-                    </div>
+                    {if $key <= 3}
+                        {LogFormat string=$log assign="logged"}
+                        <tr>
+                            <td>{$logged['handler']}</td>
+                            <td>{$logged['type']}</td>
+                            <td>{$logged['message']}</td>
+                        </tr>
                     {/if}
                 {/foreach}
-                <div class="col-12">
-                    <button class="btn btn-outline-dark border-0 btn-sm w-100" onclick="openTab('list-Log-list')">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        <span>show all</span>
-                    </button>
-                </div>
+                </tbody>
+            </table>
+            <div class="w-100">
+                <button class="btn btn-outline-dark border-0 btn-sm w-100" onclick="openTab('list-Log-list')">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span>show all</span>
+                </button>
             </div>
         {/card}
     </div>

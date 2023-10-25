@@ -16,7 +16,7 @@
         <section name="Settings">
             <area icon="fa-solid fa-folder-open" title="Cache" tpl="true" file="cache.tpl"/>
             <area icon="fa-solid fa-cloud-arrow-down" title="FileManager" tpl="true" file="filemanager.tpl"/>
-            <area icon="fa-regular fa-file-lines" title="Log" tpl="false" content="Hier Docs!"/>
+            <area icon="fa-regular fa-file-lines" title="Log" tpl="true" file="log.tpl"/>
             <area icon="fa-solid fa-circle-down" title="Update" tpl="false" content="Hier Docs!"/>
         </section>
     </sidebar>

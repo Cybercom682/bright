@@ -4,7 +4,7 @@ function openTab(tabLinkId) {
 }
 function fadeOutAlert(){
     if ($('.alert').length > 0) {
-        $('.alert').fadeOut(2000);
+        $('.alert').fadeOut(5000);
     }
 }
 //POST | DELETE
