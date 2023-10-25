@@ -14,9 +14,9 @@ class alert
 
     private function queryJS($selektor, $function, $content): string
     {
-        $onLoad = 'DOMContentLoaded'; // Korrekte Schreibweise
+        $onLoad = 'DOMContentLoaded';
         $initalContent = '$("' . $selektor . '").' . $function . '("' . $content . '")';
-        $loadVia = 'document.addEventListener("' . $onLoad . '", function() {' . $initalContent . '});'; // Event-Listener korrigiert
+        $loadVia = 'document.addEventListener("' . $onLoad . '", function() {' . $initalContent . '});';
 
         return $loadVia;
     }

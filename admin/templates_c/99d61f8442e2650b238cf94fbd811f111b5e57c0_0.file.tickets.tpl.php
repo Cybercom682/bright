@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-21 01:34:49
+/* Smarty version 4.3.4, created on 2023-10-24 14:36:23
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\tickets.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65330e99eaac62_08176824',
+  'unifunc' => 'content_6537ba478d3621_84950342',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '99d61f8442e2650b238cf94fbd811f111b5e57c0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\areas\\tickets.tpl',
-      1 => 1697839770,
+      1 => 1698138564,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65330e99eaac62_08176824 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6537ba478d3621_84950342 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\bright\\includes\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.count.php','function'=>'smarty_modifier_count',),));
 echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['DataTable'][0], array( array('table'=>"ttickets",'assign'=>"items"),$_smarty_tpl ) );?>
 
-<div class="container-fluid">
-    <table class="table table-hover border">
+<div class="container-fluid p-0">
+    <table class="table table-sm table-hover border">
         <thead>
         <tr>
             <th scope="col">Title</th>
@@ -57,13 +57,13 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
             <td>
                 <ul class="nav-bar nav">
                    <li>
-                       <button class="btn link-primary border-0 p-2" onclick="editTicket(<?php echo $_smarty_tpl->tpl_vars['item']->value['kTicket'];?>
+                       <button class="btn btn-sm link-primary border-0" onclick="editTicket(<?php echo $_smarty_tpl->tpl_vars['item']->value['kTicket'];?>
 )">
                            <i class="fa-solid fa-pen-to-square"></i>
                        </button>
                    </li>
                     <li>
-                        <button class="btn link-danger border-0 p-2" onclick="deleteTicket(<?php echo $_smarty_tpl->tpl_vars['item']->value['kTicket'];?>
+                        <button class="btn btn-sm link-danger border-0" onclick="deleteTicket(<?php echo $_smarty_tpl->tpl_vars['item']->value['kTicket'];?>
 )">
                             <i class="fa-solid fa-trash"></i>
                         </button>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-21 01:34:49
+/* Smarty version 4.3.4, created on 2023-10-25 08:44:09
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\dashboard.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65330e99e221e7_40598031',
+  'unifunc' => 'content_6538b939100133_20931540',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '395dc70e0083a966cb2b0a437746619be38e2c8c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\areas\\dashboard.tpl',
-      1 => 1697126859,
+      1 => 1698216247,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65330e99e221e7_40598031 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6538b939100133_20931540 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="row">
     <div class="col-4 p-3">
         <?php $_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['card'][0][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['card'][0][0] : null;
@@ -147,6 +147,12 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </tbody>
             </table>
+            <div class="col-12">
+                <button class="btn btn-outline-dark border-0 btn-sm w-100" onclick="openTab('list-Tickets-list')">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span>show all</span>
+                </button>
+            </div>
         <?php $_block_repeat=false;
 echo $_block_plugin4->smartyBootstrapCard(array('title'=>"Open Tickets"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
@@ -180,9 +186,10 @@ $_smarty_tpl->tpl_vars['log']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <div class="col-12">
-                    <a class="btn btn-secondary btn-sm w-100" onclick="goToTab(this,'#nav-tabContent')" href="#list-Log">
-                        show all
-                    </a>
+                    <button class="btn btn-outline-dark border-0 btn-sm w-100" onclick="openTab('list-Log-list')">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>show all</span>
+                    </button>
                 </div>
             </div>
         <?php $_block_repeat=false;

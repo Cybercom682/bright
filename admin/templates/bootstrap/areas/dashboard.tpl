@@ -60,6 +60,12 @@
                 {/foreach}
                 </tbody>
             </table>
+            <div class="col-12">
+                <button class="btn btn-outline-dark border-0 btn-sm w-100" onclick="openTab('list-Tickets-list')">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span>show all</span>
+                </button>
+            </div>
         {/card}
     </div>
     <div class="col-4 p-3">
@@ -74,9 +80,10 @@
                     {/if}
                 {/foreach}
                 <div class="col-12">
-                    <a class="btn btn-secondary btn-sm w-100" onclick="goToTab(this,'#nav-tabContent')" href="#list-Log">
-                        show all
-                    </a>
+                    <button class="btn btn-outline-dark border-0 btn-sm w-100" onclick="openTab('list-Log-list')">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>show all</span>
+                    </button>
                 </div>
             </div>
         {/card}

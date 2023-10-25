@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-21 01:34:49
+/* Smarty version 4.3.4, created on 2023-10-24 14:36:23
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\snippets\sidebar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65330e99df0544_44825092',
+  'unifunc' => 'content_6537ba4784f7a0_39769144',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e8a4199d20d7f7d837f9de71ef84ed8e5394c3f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\bright\\admin\\templates\\bootstrap\\snippets\\sidebar.tpl',
-      1 => 1697013478,
+      1 => 1698137683,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65330e99df0544_44825092 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6537ba4784f7a0_39769144 (Smarty_Internal_Template $_smarty_tpl) {
 if ((isset($_smarty_tpl->tpl_vars['list']->value)) && !empty($_smarty_tpl->tpl_vars['list']->value)) {?>
     <?php if ((isset($_smarty_tpl->tpl_vars['pos']->value)) && !empty($_smarty_tpl->tpl_vars['pos']->value)) {?>
         <?php if ($_smarty_tpl->tpl_vars['pos']->value === 'tab') {?>
@@ -104,17 +104,18 @@ $_smarty_tpl->tpl_vars['area']->do_else = false;
                                 <div class="tab-pane fade <?php if ($_smarty_tpl->tpl_vars['counterTwo']->value === 0) {?>show active<?php }?>" id="list-<?php echo $_smarty_tpl->tpl_vars['area']->value['title'];?>
 " role="tabpanel" aria-labelledby="list-<?php echo $_smarty_tpl->tpl_vars['area']->value['title'];?>
 -list">
-                                    <div class="mt-5">
-                                        <div class="container-fluid border rounded p-3 overflow-auto">
-                                            <h4>
-                                                <?php if ((isset($_smarty_tpl->tpl_vars['area']->value['icon']))) {?>
-                                                    <i class="<?php echo $_smarty_tpl->tpl_vars['area']->value['icon'];?>
+                                    <div class="mt-4">
+                                        <h4>
+                                            <?php if ((isset($_smarty_tpl->tpl_vars['area']->value['icon']))) {?>
+                                                <i class="<?php echo $_smarty_tpl->tpl_vars['area']->value['icon'];?>
 "></i>&nbsp;
-                                                <?php }?>
-                                                <?php echo $_smarty_tpl->tpl_vars['area']->value['title'];?>
+                                            <?php }?>
+                                            <?php echo $_smarty_tpl->tpl_vars['area']->value['title'];?>
 
-                                            </h4>
-                                            <hr class="border border-dark border-2 mt-1 mb-3 opacity-75">
+                                        </h4>
+                                        <hr class="border border-dark border-2 mt-1 mb-3 opacity-75">
+                                        <div class="container-fluid border p-3 overflow-auto">
+
                                             <div class="container-fluid sb-th">
                                                 <?php if ($_smarty_tpl->tpl_vars['area']->value['tpl'] == 'true') {?>
                                                     <?php $_smarty_tpl->_subTemplateRender(("../areas/").($_smarty_tpl->tpl_vars['area']->value['file']), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);

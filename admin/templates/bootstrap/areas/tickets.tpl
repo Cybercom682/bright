@@ -1,6 +1,6 @@
 {DataTable table="ttickets" assign="items"}
-<div class="container-fluid">
-    <table class="table table-hover border">
+<div class="container-fluid p-0">
+    <table class="table table-sm table-hover border">
         <thead>
         <tr>
             <th scope="col">Title</th>
@@ -22,12 +22,12 @@
             <td>
                 <ul class="nav-bar nav">
                    <li>
-                       <button class="btn link-primary border-0 p-2" onclick="editTicket({$item['kTicket']})">
+                       <button class="btn btn-sm link-primary border-0" onclick="editTicket({$item['kTicket']})">
                            <i class="fa-solid fa-pen-to-square"></i>
                        </button>
                    </li>
                     <li>
-                        <button class="btn link-danger border-0 p-2" onclick="deleteTicket({$item['kTicket']})">
+                        <button class="btn btn-sm link-danger border-0" onclick="deleteTicket({$item['kTicket']})">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </li>

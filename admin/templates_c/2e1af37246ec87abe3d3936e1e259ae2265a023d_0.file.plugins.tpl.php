@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-21 01:34:49
+/* Smarty version 4.3.4, created on 2023-10-24 14:36:23
   from 'C:\xampp\htdocs\bright\admin\templates\bootstrap\areas\plugins.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65330e99e7ec64_12830850',
+  'unifunc' => 'content_6537ba478b8ca9_51365738',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65330e99e7ec64_12830850 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6537ba478b8ca9_51365738 (Smarty_Internal_Template $_smarty_tpl) {
 ?><table class="table table-hover border">
     <thead>
     <tr>
