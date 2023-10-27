@@ -7,9 +7,8 @@
         validate="test_plugin">
     <backend>
         <widgets>
-            <widget type="simple">
-                <!-- Smarty Template File -->
-                <file>test_widget</file>
+            <widget name="clock">
+                <tpl>clock</tpl>
             </widget>
         </widgets>
         <settings>

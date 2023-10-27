@@ -1,6 +1,6 @@
 <?php
 
-use controller\handler\plugin;
+use controller\handler\plugins;
 use controller\serverInfo;
 use controller\tools\poster;
 use controller\visitors;
@@ -16,7 +16,7 @@ require(PATH_ROOT . PATH_ADMIN . '/controller/serverInfo.php');
 require(PATH_ROOT . PATH_ADMIN . '/controller/visitors.php');
 require(PATH_ROOT . PATH_ADMIN . '/controller/tools/smartyFuncs.php');
 require(PATH_ROOT . PATH_ADMIN . '/controller/tools/poster.php');
-require(PATH_ROOT . PATH_ADMIN . '/controller/handler/plugin.php');
+require(PATH_ROOT . PATH_ADMIN . '/controller/handler/plugins.php');
 
 class backend
 {
@@ -41,7 +41,7 @@ class backend
             ->assign('vendorPath', PATH_INCLUDES . 'vendor/')
             ->assign('logValues',$this->getArrayFromFile($logFilePath))
             ->assign('includesPath',PATH_INCLUDES)
-            ->assign('pluginList', (new plugin())->findPluginXMLFiles(PATH_ROOT . PATH_PLUGINS))
+            ->assign('pluginList', (new plugins())->findPluginXMLFiles(PATH_ROOT . PATH_PLUGINS))
             ->assign('serverInfo', (new serverInfo())->getServerInfo())
             ->assign('sidebar',$this->executeConfig(PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . $templateName . '/template.xml')->xpath('//sidebar'))
             ->setDebugging($debug);

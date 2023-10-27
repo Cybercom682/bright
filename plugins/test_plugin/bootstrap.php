@@ -1,6 +1,7 @@
 <?php
 
-class bootstrap
-{
+use controller\handler\plugin;
 
+class bootstrap extends plugin
+{
 }
