@@ -1,9 +1,8 @@
 <?php
+namespace controller\handler {
 
-namespace controller\handler;
-
-class plugin{
-    public function findPluginXMLFiles($path)
+    class plugin {
+        public function findPluginXMLFiles($path): array
         {
             $xmlReader = new \xmlHelper();
             $pluginXMLFiles = array();
@@ -21,3 +20,4 @@ class plugin{
             return $pluginXMLFiles;
         }
     }
+}
