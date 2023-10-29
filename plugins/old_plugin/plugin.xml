@@ -1,0 +1,24 @@
+<plugin author="Bright"
+        title="Old Plugin"
+        description="only a Test to install"
+        version="1.0.2"
+        website="older.de"
+        licence="xzYYy-34445-PB126"
+        validate="old_plugin">
+    <backend>
+        <widgets>
+            <widget name="clock">
+                <tpl>clock</tpl>
+            </widget>
+        </widgets>
+        <settings>
+            <setting type="text" initValue="test value" sort="5">
+                <!-- Assign for PHP Config Var -->
+                <assign>test_value</assign>
+            </setting>
+        </settings>
+    </backend>
+    <frontend>
+        <!-- in progress -->
+    </frontend>
+</plugin>

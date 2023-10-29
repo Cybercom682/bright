@@ -4,7 +4,6 @@
     <table class="table table-hover border">
         <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Plugin</th>
             <th scope="col">Description</th>
             <th scope="col">Version</th>
@@ -14,11 +13,10 @@
         </tr>
         </thead>
         <tbody>
-        {foreach $pluginList as $key => $plugin}
+        {foreach $pluginList as $plugin}
             {foreach $items as $item}
                 {if $item['cValidate'] === $plugin["@attributes"]['validate']}
                     <tr>
-                        <th scope="row">{$key}</th>
                         <td>{$plugin["@attributes"]['title']}</td>
                         <td>{$plugin["@attributes"]['description']}</td>
                         <td>{$plugin["@attributes"]['version']}</td>
@@ -44,7 +42,6 @@
     <table class="table table-hover border">
         <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Plugin</th>
             <th scope="col">Description</th>
             <th scope="col">Version</th>
@@ -54,53 +51,84 @@
         </tr>
         </thead>
         <tbody>
-        {foreach $pluginList as $key => $plugin}
-            {foreach $items as $item}
-                {if $item['cValidate'] !== $plugin["@attributes"]['validate']}
-                    <tr>
-                        <th scope="row">{$key}</th>
-                        <td>{$plugin["@attributes"]['title']}</td>
-                        <td>{$plugin["@attributes"]['description']}</td>
-                        <td>{$plugin["@attributes"]['version']}</td>
-                        <td>{$plugin["@attributes"]['validate']}</td>
-                        <td class="mx-auto">
-                            compatible
-                        </td>
-                        <td>
-                            <ul class="nav-bar nav">
-                                <li class="me-2">
-                                    <button class="btn btn-sm btn-outline-primary" onclick="installPlugin('{$plugin["@attributes"]['validate']}')">
-                                        <span>INSTALL</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn btn-sm btn-outline-danger" onclick="deletePlugin('{$plugin["@attributes"]['validate']}')">
-                                        <span>DELETE</span>
-                                    </button>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                {/if}
-            {/foreach}
+        {foreach $pluginList as $plugin}
+            {if !in_array($plugin["@attributes"]['validate'],$items)}
+                <tr>
+                    <td>{$plugin["@attributes"]['title']}</td>
+                    <td>{$plugin["@attributes"]['description']}</td>
+                    <td>{$plugin["@attributes"]['version']}</td>
+                    <td>{$plugin["@attributes"]['validate']}</td>
+                    <td class="mx-auto">
+                        compatible
+                    </td>
+                    <td>
+                        <ul class="nav-bar nav">
+                            <li class="me-2">
+                                <button class="btn btn-sm btn-outline-primary" onclick="installPlugin('{$plugin["@attributes"]['validate']}')">
+                                    <span>INSTALL</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="btn btn-sm btn-outline-danger" onclick="deletePlugin('{$plugin["@attributes"]['validate']}')">
+                                    <span>DELETE</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {/if}
         {/foreach}
         </tbody>
     </table>
-    <div class="w-100">
+
+    <h5>Upload</h5>
+    <div class="w-100 border p-3">
         <form id="uploadPluginForm" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="action" value="upload">
-            <input type="hidden" name="handler" value="plugin">
-            <div class="form-group">
-                <input type="file" name="pluginZip" id="pluginZip" class="form-control mb-2">
-                <button type="submit" class="btn btn-sm btn-outline-dark">Upload Plugin</button>
+            <div class="row">
+                <input type="hidden" name="action" value="upload">
+                <input type="hidden" name="handler" value="plugin">
+                <div class="form-group d-flex">
+                    <div class="col-11">
+                        <input type="file" name="pluginZip" id="pluginZip" class="form-control">
+                    </div>
+                    <div class="col-1 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-sm btn-outline-dark">Upload Plugin</button>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
 </div>
+
 <script>
     function openPlugin(plugin_id){
         if(plugin_id.length > 0){
-            alert('openPlugin: kPlugin = ' + plugin_id)
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = window.location.href;
+
+            var hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'action';
+            hiddenInput.value = 'open';
+
+            var hiddenInput2 = document.createElement('input');
+            hiddenInput2.type = 'hidden';
+            hiddenInput2.name = 'handler';
+            hiddenInput2.value = 'plugin';
+
+            var idValue = document.createElement('input');
+            idValue.type = 'hidden';
+            idValue.name = 'kPlugin';
+            idValue.value = plugin_id;
+
+            form.appendChild(hiddenInput);
+            form.appendChild(hiddenInput2);
+            form.appendChild(idValue);
+
+            document.body.appendChild(form);
+
+            form.submit();
         }
     }
     function installPlugin(plugin_folder){

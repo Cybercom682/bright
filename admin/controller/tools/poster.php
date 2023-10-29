@@ -2,7 +2,6 @@
 
 namespace controller\tools;
 use controller\handler\plugin;
-use controller\handler\plugins;
 use controller\handler\ticket;
 
 include (dirname(__DIR__) . '/handler/ticket.php');
@@ -43,6 +42,7 @@ class poster
                     break;
                 case 'upload' : $this->upload($_POST['handler']);
                     break;
+                case 'open' : $this->openTemplate($_POST['handler']);
             }
         }
     }
@@ -83,7 +83,7 @@ class poster
                 break;
             case 'page' : echo 'ser';
                 break;
-            case 'plugins' : echo 'dsf';
+            case 'plugin' : (new plugin($this->getDb()))->removePlugin();
                 break;
         }
     }
@@ -91,7 +91,7 @@ class poster
     private function install($handler): void
     {
         switch ($handler){
-            case 'plugins' : echo 'dsf';
+            case 'plugin' : (new plugin($this->getDb()))->installPlugin();
                 break;
             case 'template' : echo 'sdf';
                 break;
@@ -102,6 +102,15 @@ class poster
     {
         switch ($handler){
             case 'plugin' : (new plugin($this->getDb()))->uploadPlugin();
+                break;
+            case 'template' : 'dsf';
+                break;
+        }
+    }
+
+    private function openTemplate($handler){
+        switch ($handler){
+            case 'plugin' : (new plugin($this->getDb(),$this->getSmarty()))->openPluginMenu();
                 break;
             case 'template' : 'dsf';
                 break;
