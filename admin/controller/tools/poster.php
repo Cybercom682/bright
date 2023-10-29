@@ -1,9 +1,12 @@
 <?php
 
 namespace controller\tools;
+use controller\handler\plugin;
+use controller\handler\plugins;
 use controller\handler\ticket;
 
 include (dirname(__DIR__) . '/handler/ticket.php');
+include (dirname(__DIR__) . '/handler/plugin.php');
 include (__DIR__ . '/cache.php');
 
 class poster
@@ -36,6 +39,10 @@ class poster
                     break;
                 case 'cache' : (new cache())->clearTemplateCache($this->getSmarty());
                     break;
+                case 'install' : $this->install($_POST['handler']);
+                    break;
+                case 'upload' : $this->upload($_POST['handler']);
+                    break;
             }
         }
     }
@@ -48,7 +55,7 @@ class poster
         return $this->smarty;
     }
 
-    private function create($handler)
+    private function create($handler): void
     {
         switch ($handler){
             case 'ticket' : (new ticket())->create($this->getDb());
@@ -57,28 +64,54 @@ class poster
         }
     }
 
-    private function update($handler)
+    private function update($handler): void
     {
         switch ($handler){
             case 'ticket' : (new ticket())->update($this->getDb());
                 break;
             case 'page' : echo 'ser';
+                break;
+            case 'plugins' : echo 'dsf';
+                break;
         }
     }
 
-    private function delete($handler)
+    private function delete($handler): void
     {
         switch ($handler){
             case 'ticket' : (new ticket())->delete($this->getDb());
                 break;
             case 'page' : echo 'ser';
+                break;
+            case 'plugins' : echo 'dsf';
+                break;
+        }
+    }
+
+    private function install($handler): void
+    {
+        switch ($handler){
+            case 'plugins' : echo 'dsf';
+                break;
+            case 'template' : echo 'sdf';
+                break;
+        }
+    }
+
+    private function upload($handler): void
+    {
+        switch ($handler){
+            case 'plugin' : (new plugin($this->getDb()))->uploadPlugin();
+                break;
+            case 'template' : 'dsf';
+                break;
         }
     }
 
     /**
      * @return mixed
      */
-    public function getDb()
+    public function getDb(): mixed
     {
         return $this->db;
     }

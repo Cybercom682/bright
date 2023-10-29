@@ -8,6 +8,7 @@
         "smarty/smarty":"^4.3",
         "arlisaha/scssphp": "v0.6.1",
         "parsedown/laravel": "1.2.1",
-        "monolog/monolog": "3.4.0"
+        "monolog/monolog": "3.4.0",
+        "ext-zip": "*"
     }
 }

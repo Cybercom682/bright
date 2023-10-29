@@ -87,9 +87,14 @@
         </tbody>
     </table>
     <div class="w-100">
-        <button class="btn btn-sm btn-outline-dark" onclick="uploadPlugin()">
-            <span>Upload Plugin</span>
-        </button>
+        <form id="uploadPluginForm" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="action" value="upload">
+            <input type="hidden" name="handler" value="plugin">
+            <div class="form-group">
+                <input type="file" name="pluginZip" id="pluginZip" class="form-control mb-2">
+                <button type="submit" class="btn btn-sm btn-outline-dark">Upload Plugin</button>
+            </div>
+        </form>
     </div>
 </div>
 <script>
@@ -157,8 +162,5 @@
 
             form.submit();
         }
-    }
-    function uploadPlugin(){
-        alert('Future...')
     }
 </script>

@@ -6,8 +6,6 @@
       <sourceFolder url="file://$MODULE_DIR$/admin/controller" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/includes/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/includes/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/smarty/smarty" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/studio-42/elfinder" />
