@@ -13,7 +13,10 @@
                     <span><i class="fa-solid fa-folder"></i> <strong>Validate:</strong> {$plugin['cValidate']}</span>
                 </div>
                 <div class="col-6 border p-3">
-                    <span><i class="fa-solid fa-circle-info"></i> <strong>Description:</strong> {$plugin['cDescription']}</span>
+                    <span><i class="fa-solid fa-circle-info"></i><strong>Description:</strong></span><br>
+                    <div class="ms-3 mt-3 p-2 border-start">
+                        <span>{$plugin['cDescription']}</span>
+                    </div>
                 </div>
             {/foreach}
         </div>
@@ -21,7 +24,25 @@
 {/block}
 {block name="bright-admin-main-content"}
     <div class="container border p-3 mt-3">
-        Content Settings
+        {DataTable table="tpluginsettings" assign="settings"}
+        <form id=PluginForm" method="post">
+            <input type="hidden" name="action" value="update">
+            <input type="hidden" name="handler" value="plugin">
+            <input type="hidden" name="kPlugin" value="{$pluginData[0]['kPlugin']}">
+            {foreach $settings as $setting}
+                {if in_array($setting['kPlugin'],$pluginData[0])}
+                    <div class="mb-3">
+                        <label for="{$setting['name']}" class="form-label"><strong>{$setting['cTitle']}</strong></label>
+                        <input class="form-control" id="{$setting['name']}" type="{$setting['type']}" name="setting[{$setting['name']}]" value="{$setting['value']}">
+                    </div>
+                {else}
+                    <div class="alert alert-info"><span>No Options...</span></div>
+                {/if}
+            {/foreach}
+            <div class="w-100">
+                <button class="btn btn-sm btn-outline-primary w-100"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+            </div>
+        </form>
     </div>
 {/block}
 {block name="bright-admin-footer"}
