@@ -25,8 +25,13 @@
                         <td>
                             <ul class="nav-bar nav">
                                 <li>
-                                    <button class="btn btn-sm link-primary border-0" onclick="openPlugin('{$item['kPlugin']}')">
+                                    <button class="btn btn-sm link-primary border-0" onclick="controlPlugin('open', 'plugin','kPlugin','{$item['kPlugin']}')">
                                         <i class="fa-solid fa-up-right-from-square"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-sm link-danger border-0" onclick="controlPlugin('uninstall', 'plugin','kPlugin','{$item['kPlugin']}')">
+                                        <i class="fa-solid fa-trash"></i>
                                     </button>
                                 </li>
                             </ul>
@@ -52,7 +57,13 @@
         </thead>
         <tbody>
         {foreach $pluginList as $plugin}
-            {if !in_array($plugin["@attributes"]['validate'],$items)}
+            {assign var='isInstalled' value=false}
+            {foreach $items as $item}
+                {if $item['cValidate'] === $plugin["@attributes"]['validate']}
+                    {assign var='isInstalled' value=true}
+                {/if}
+            {/foreach}
+            {if !$isInstalled}
                 <tr>
                     <td>{$plugin["@attributes"]['title']}</td>
                     <td>{$plugin["@attributes"]['description']}</td>
@@ -64,12 +75,12 @@
                     <td>
                         <ul class="nav-bar nav">
                             <li class="me-2">
-                                <button class="btn btn-sm btn-outline-primary" onclick="installPlugin('{$plugin["@attributes"]['validate']}')">
+                                <button class="btn btn-sm btn-outline-primary" onclick="controlPlugin('install', 'plugin','validate','{$plugin["@attributes"]['validate']}')">
                                     <span>INSTALL</span>
                                 </button>
                             </li>
                             <li>
-                                <button class="btn btn-sm btn-outline-danger" onclick="deletePlugin('{$plugin["@attributes"]['validate']}')">
+                                <button class="btn btn-sm btn-outline-danger" onclick="controlPlugin('delete', 'plugin','validate','{$plugin["@attributes"]['validate']}')">
                                     <span>DELETE</span>
                                 </button>
                             </li>
@@ -101,8 +112,8 @@
 </div>
 
 <script>
-    function openPlugin(plugin_id){
-        if(plugin_id.length > 0){
+    function controlPlugin(action, handler,name, value) {
+        if (value.length > 0) {
             var form = document.createElement('form');
             form.method = 'POST';
             form.action = window.location.href;
@@ -110,77 +121,17 @@
             var hiddenInput = document.createElement('input');
             hiddenInput.type = 'hidden';
             hiddenInput.name = 'action';
-            hiddenInput.value = 'open';
+            hiddenInput.value = action;
 
             var hiddenInput2 = document.createElement('input');
             hiddenInput2.type = 'hidden';
             hiddenInput2.name = 'handler';
-            hiddenInput2.value = 'plugin';
+            hiddenInput2.value = handler;
 
             var idValue = document.createElement('input');
             idValue.type = 'hidden';
-            idValue.name = 'kPlugin';
-            idValue.value = plugin_id;
-
-            form.appendChild(hiddenInput);
-            form.appendChild(hiddenInput2);
-            form.appendChild(idValue);
-
-            document.body.appendChild(form);
-
-            form.submit();
-        }
-    }
-    function installPlugin(plugin_folder){
-        if(plugin_folder.length > 0){
-            var form = document.createElement('form');
-            form.method = 'POST';
-            form.action = window.location.href;
-
-            var hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = 'action';
-            hiddenInput.value = 'install';
-
-            var hiddenInput2 = document.createElement('input');
-            hiddenInput2.type = 'hidden';
-            hiddenInput2.name = 'handler';
-            hiddenInput2.value = 'plugin';
-
-            var idValue = document.createElement('input');
-            idValue.type = 'hidden';
-            idValue.name = 'validate';
-            idValue.value = plugin_folder;
-
-            form.appendChild(hiddenInput);
-            form.appendChild(hiddenInput2);
-            form.appendChild(idValue);
-
-            document.body.appendChild(form);
-
-            form.submit();
-        }
-    }
-    function deletePlugin(plugin_folder){
-        if(plugin_folder.length > 0){
-            var form = document.createElement('form');
-            form.method = 'POST';
-            form.action = window.location.href;
-
-            var hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = 'action';
-            hiddenInput.value = 'delete';
-
-            var hiddenInput2 = document.createElement('input');
-            hiddenInput2.type = 'hidden';
-            hiddenInput2.name = 'handler';
-            hiddenInput2.value = 'plugin';
-
-            var idValue = document.createElement('input');
-            idValue.type = 'hidden';
-            idValue.name = 'validate';
-            idValue.value = plugin_folder;
+            idValue.name = name;
+            idValue.value = value;
 
             form.appendChild(hiddenInput);
             form.appendChild(hiddenInput2);

@@ -2,12 +2,14 @@
 
 namespace controller\handler;
 
+use controller\models\pluginModel;
 use Exception;
 use FilesystemIterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use ZipArchive;
 
+include dirname(__DIR__) . '/models/pluginModel.php';
 
 class plugin
 {
@@ -90,6 +92,7 @@ class plugin
                         ];
 
                         $this->getDb()->insertData('tplugin', $data);
+
                     } else {
                         echo "Ein Eintrag mit denselben Daten existiert bereits.";
                     }
@@ -108,59 +111,42 @@ class plugin
     }
 
     public function openPluginMenu(){
-        $this->getSmarty()->assign('pluginData',$this->getDb()->query('SELECT * FROM tplugin WHERE kPlugin ='. $_POST['kPlugin']))->display(PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . 'bootstrap/areas/config/pluginMenu.tpl');
+        $this->getSmarty()->assign('pluginInfo',(new pluginModel($this->getDb(),$_POST['kPlugin']))->getPluginInformations())
+            ->assign('pluginConfig', (new pluginModel($this->getDb(),$_POST['kPlugin']))->getPluginConfig())
+            ->display(PATH_ROOT . PATH_ADMIN . PATH_TEMPLATES . 'bootstrap/areas/config/pluginMenu.tpl');
         die;
     }
     public function removePlugin(){
         $pluginPath = $this->getPluginPath();
         $pluginFolder = $_POST['validate'];
 
-        $folderPath = $pluginPath . '/' . $pluginFolder;
-
-        if (file_exists($folderPath) && is_dir($folderPath)) {
-            $iterator = new RecursiveIteratorIterator(
-                new RecursiveDirectoryIterator($folderPath, FilesystemIterator::SKIP_DOTS),
-                RecursiveIteratorIterator::CHILD_FIRST
-            );
-
-            foreach ($iterator as $file) {
-                if ($file->isDir()) {
-                    rmdir($file->getRealPath());
-                } else {
-                    unlink($file->getRealPath());
+        if (is_dir($pluginPath)) {
+            $dir = opendir($pluginPath);
+            while (false !== ($file = readdir($dir))) {
+                if ($file != '.' && $file != '..') {
+                    $file_path = $pluginPath . DIRECTORY_SEPARATOR . $file;
+                    if (is_dir($file_path) && $file == $pluginFolder) {
+                        array_map('unlink', glob("$file_path/*.*"));
+                        rmdir($file_path);
+                    }
                 }
             }
-
-            if (rmdir($folderPath)) {
-                echo "Der Ordner '$pluginFolder' wurde erfolgreich gelöscht.";
-            } else {
-                echo "Fehler beim Löschen des Ordners '$pluginFolder'.";
-            }
-        } else {
-            echo "Der Ordner '$pluginFolder' existiert nicht oder ist kein Verzeichnis.";
+            closedir($dir);
         }
     }
 
+    public function uninstallPlugin()
+    {
+        try {
+            $this->getDb()->deleteById('tplugin','kPlugin',$_POST['kPlugin']);
+        }catch (Exception $e){
+            //echo $e;
+        }
+    }
 
     public function updatePlugin()
     {
-    //        try{
-    //            $kTicket = $_POST['t_id'];
-    //            $cTitle = $_POST['t_title'];
-    //            $cContent = $_POST['t_task'];
-    //            $cPrio = $_POST['t_prio'];
-    //            $cStatus = $_POST['t_status'];
-    //
-    //            $data = [
-    //                'cTitle' => $cTitle,
-    //                'cContent' => $cContent,
-    //                'cPrio' => $cPrio,
-    //                'cStatus' => $cStatus
-    //            ];
-    //
-    //            $this->getDb()->updateData('ttickets',$data,'kTicket',$kTicket);
-    //        }catch (Exception $e){
-        //echo $e;
+    // TODO: next...
     }
 
     public function uploadPlugin() {

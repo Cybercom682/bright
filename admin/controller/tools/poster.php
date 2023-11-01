@@ -40,6 +40,8 @@ class poster
                     break;
                 case 'install' : $this->install($_POST['handler']);
                     break;
+                case 'uninstall' : $this->uninstall($_POST['handler']);
+                    break;
                 case 'upload' : $this->upload($_POST['handler']);
                     break;
                 case 'open' : $this->openTemplate($_POST['handler']);
@@ -92,6 +94,16 @@ class poster
     {
         switch ($handler){
             case 'plugin' : (new plugin($this->getDb()))->installPlugin();
+                break;
+            case 'template' : echo 'sdf';
+                break;
+        }
+    }
+
+    public function uninstall($handler): void
+    {
+        switch ($handler){
+            case 'plugin' : (new plugin($this->getDb()))->uninstallPlugin();
                 break;
             case 'template' : echo 'sdf';
                 break;

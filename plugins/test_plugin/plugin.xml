@@ -12,10 +12,11 @@
             </widget>
         </widgets>
         <settings>
-            <setting type="text" initValue="test value" sort="5">
-                <!-- Assign for PHP Config Var -->
-                <assign>test_value</assign>
-            </setting>
+            <section name="Settings" type="tab">
+                <setting type="text" initValue="test value" sort="5">
+                    <assign>test_value</assign>
+                </setting>
+            </section>
         </settings>
     </backend>
     <frontend>
