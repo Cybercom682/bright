@@ -67,10 +67,11 @@ class pluginModel
         return $pluginConfig;
     }
 
+
     /**
      * @return mixed
      */
-    public function getDb()
+    public function getDb(): mixed
     {
         return $this->db;
     }

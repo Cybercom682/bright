@@ -63,9 +63,11 @@ class plugin
             if (file_exists($pluginXmlFile)) {
 
                 $pluginXmlContent = file_get_contents($pluginXmlFile);
-                $xmlData = simplexml_load_string($pluginXmlContent);
+                $xmlData = $this->getAsocArrFromXml(simplexml_load_string($pluginXmlContent));
+                dump($xmlData);
 
                 try {
+                    // PluginInfo
                     $cTitle = $xmlData['title'];
                     $cDescription = $xmlData['description'];
                     $cVersion = $xmlData['version'];
@@ -74,7 +76,6 @@ class plugin
                     $cLicence = $xmlData['licence'];
                     $cAuthor = $xmlData['author'];
 
-                    // Überprüft, ob ein Eintrag mit denselben Daten bereits existiert
                     $existingEntry = $this->getDb()->query("SELECT kPlugin FROM tplugin WHERE cTitle = '$cTitle' AND cDescription = '$cDescription' AND cVersion = '$cVersion' AND cAuthor = '$cAuthor'");
 
                     if (empty($existingEntry)) {
@@ -108,6 +109,75 @@ class plugin
         } else {
             echo "Das Verzeichnis '$pluginFolder' existiert nicht.";
         }
+    }
+
+    private function getAsocArrFromXml($xmlData){
+
+        $xmlObjekt = $xmlData;
+
+        $resultArray = [];
+
+        $attributes = $xmlObjekt->attributes();
+        foreach ($attributes as $name => $value) {
+            $resultArray[$name] = $value;
+        }
+
+        $backend = $xmlObjekt->backend;
+        $widgets = $backend->widgets->widget;
+
+        foreach ($widgets as $widget) {
+            $widgetAttributes = $widget->attributes();
+            $widgetName = $widgetAttributes['name'];
+            $tpl = $widget->tpl;
+            $resultArray['widgets'][] = ['name' => $widgetName, 'tpl' => $tpl];
+        }
+
+        $settings = $backend->settings->section;
+        foreach ($settings as $section) {
+            $sectionAttributes = $section->attributes();
+            $sectionName = $sectionAttributes['name'];
+
+            $sectionArray = ['name' => $sectionName];
+
+            $sectionType = $sectionAttributes['type'];
+            $sectionArray['type'] = $sectionType;
+
+            $sectionSettings = $section->setting;
+            $settingsArray = [];
+
+            foreach ($sectionSettings as $setting) {
+                $settingAttributes = $setting->attributes();
+                $settingType = $settingAttributes['type'];
+                $settingTitle = $settingAttributes['title'];
+                $initValue = $settingAttributes['initValue'];
+                $sort = $settingAttributes['sort'];
+                $assign = $setting->assign;
+
+                $settingArray = [
+                    'type' => $settingType,
+                    'title' => $settingTitle,
+                    'initValue' => $initValue,
+                    'sort' => $sort,
+                    'assign' => $assign,
+                ];
+
+                // Wenn es ein 'select'-Element gibt, die Optionen hinzufügen
+                if ($settingType === 'select') {
+                    $options = $setting->options->option;
+                    $settingArray['options'] = [];
+
+                    foreach ($options as $option) {
+                        $settingArray['options'][] = (string) $option;
+                    }
+                }
+
+                $settingsArray[] = $settingArray;
+            }
+
+            $sectionArray['settings'] = $settingsArray;
+            $resultArray['sections'][] = $sectionArray;
+        }
+        return $resultArray;
     }
 
     public function openPluginMenu(){

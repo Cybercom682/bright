@@ -7,19 +7,17 @@
         validate="test_plugin">
     <backend>
         <widgets>
-            <widget name="clock">
-                <tpl>clock</tpl>
-            </widget>
+            <widget name="clock" tpl="clock"/>
         </widgets>
         <settings>
             <section name="Settings" type="tab">
-                <setting type="text" initValue="test value" sort="5">
-                    <assign>test_value</assign>
+                <setting type="checkbox" title="Test123" initValue="Activate Plugin" sort="5">
+                    <assign value="test_activate_plugin"/>
                 </setting>
             </section>
         </settings>
     </backend>
     <frontend>
-        <!-- in progress -->
+
     </frontend>
 </plugin>

@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/admin/controller" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/includes/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/includes/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/smarty/smarty" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/studio-42/elfinder" />
@@ -14,6 +16,9 @@
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/parsedown/laravel" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/includes/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/includes/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/includes/vendor/symfony/var-dumper" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

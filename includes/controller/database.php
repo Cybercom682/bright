@@ -54,8 +54,10 @@ class database
 
             // Führe die Abfrage aus
             $this->connection->exec($sql);
+            return true;
         } catch (PDOException $e) {
             echo "Fehler beim Einfügen der Daten: " . $e->getMessage();
+            return false;
         }
     }
 

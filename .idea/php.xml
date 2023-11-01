@@ -20,6 +20,9 @@
       <path value="$PROJECT_DIR$/includes/vendor/erusev/parsedown" />
       <path value="$PROJECT_DIR$/includes/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/includes/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/includes/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/includes/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/includes/vendor/symfony/var-dumper" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
