@@ -11,5 +11,14 @@
         "monolog/monolog": "3.4.0",
         "ext-zip": "*",
         "symfony/var-dumper": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "handler\\": "../admin/controller/handler",
+            "interfaces\\": "../admin/controller/interfaces",
+            "models\\": "../admin/controller/models",
+            "services\\": "../admin/controller/services",
+            "tools\\": "../admin/controller/tools"
+        }
     }
 }

@@ -26,20 +26,41 @@
             <input type="hidden" name="action" value="update">
             <input type="hidden" name="handler" value="plugin">
             <input type="hidden" name="kPlugin" value="{$pluginInfo['kPlugin']}">
+            {assign var="flagTitleName" value=""}
             {foreach $pluginConfig as $setting}
-                {if in_array($setting['kPlugin'],$pluginInfo)}
-                    {if $setting['type'] === 'checkbox'}
-                        {assign var="class" value="form-check-input"}
+                    {if in_array($setting['kPlugin'],$pluginInfo)}
+                        {if $flagTitleName !== $setting['cSectionName']}
+                            <h6 class="border text-bg-dark p-2 text-uppercase my-2"><strong>{$setting['cSectionName']}</strong></h6>
+                        {/if}
+                        <div class="px-3">
+                        <div class="mb-3">
+                            {if $setting['type'] === 'checkbox'}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="{$setting['value']}" name="setting[{$setting['name']}]" id="{$setting['name']}">
+                                    <label class="form-check-label" for="{$setting['name']}">
+                                        {$setting['cTitle']}
+                                    </label>
+                                </div>
+                            {elseif $setting['type'] === 'select'}
+                                <div class="mb-3">
+                                    <label for="{$setting['name']}" class="form-label"><strong>{$setting['cTitle']}</strong></label>
+                                    <select class="form-select" id="{$setting['name']}" type="{$setting['type']}" name="setting[{$setting['name']}]">
+                                        <option>{$setting['value']}</option>
+                                    </select>
+                                </div>
+                            {else}
+                                <div class="mb-3">
+                                    <label for="{$setting['name']}" class="form-label"><strong>{$setting['cTitle']}</strong></label>
+                                    <input class="form-control" id="{$setting['name']}" type="{$setting['type']}" name="setting[{$setting['name']}]" value="{$setting['value']}">
+                                </div>
+                            {/if}
+                        </div>
+                        </div>
                     {else}
-                        {assign var="class" value="form-control"}
+                        <div class="alert alert-info"><span>No Options...</span></div>
                     {/if}
-                    <div class="mb-3">
-                        <label for="{$setting['name']}" class="form-label"><strong>{$setting['cTitle']}</strong></label>
-                        <input class="{$class}" id="{$setting['name']}" type="{$setting['type']}" name="setting[{$setting['name']}]" value="{$setting['value']}">
-                    </div>
-                {else}
-                    <div class="alert alert-info"><span>No Options...</span></div>
-                {/if}
+
+                {assign var="flagTitleName" value=$setting['cSectionName']}
             {/foreach}
             <div class="w-100">
                 <button class="btn btn-sm btn-outline-primary w-100"><i class="fa-solid fa-floppy-disk"></i> Save</button>

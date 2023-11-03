@@ -3,10 +3,8 @@
 namespace controller\handler;
 
 use controller\models\pluginModel;
+use controller\tools\alert;
 use Exception;
-use FilesystemIterator;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
 use ZipArchive;
 
 include dirname(__DIR__) . '/models/pluginModel.php';
@@ -45,7 +43,7 @@ class plugin
         return $pluginPath;
     }
 
-    private function getInstalledPluginList() : array
+    public function getInstalledPluginList() : array
     {
         return $this->getDb()->query('SELECT * FROM tplugin');
     }
@@ -64,7 +62,6 @@ class plugin
 
                 $pluginXmlContent = file_get_contents($pluginXmlFile);
                 $xmlData = $this->getAsocArrFromXml(simplexml_load_string($pluginXmlContent));
-                dump($xmlData);
 
                 try {
                     // PluginInfo
@@ -75,6 +72,8 @@ class plugin
                     $cWebsite = $xmlData['website'];
                     $cLicence = $xmlData['licence'];
                     $cAuthor = $xmlData['author'];
+                    $PluginWidgets = $xmlData['widgets'];
+                    $PluginSettings = $xmlData['sections'];
 
                     $existingEntry = $this->getDb()->query("SELECT kPlugin FROM tplugin WHERE cTitle = '$cTitle' AND cDescription = '$cDescription' AND cVersion = '$cVersion' AND cAuthor = '$cAuthor'");
 
@@ -94,11 +93,43 @@ class plugin
 
                         $this->getDb()->insertData('tplugin', $data);
 
+
+                        foreach ($PluginSettings as $settings) {
+                            $sectionData = [
+                                'cSectionName' => $settings['name'],
+                                'cSectionType' => $settings['type']
+                            ];
+
+                            foreach ($settings['settings'] as $setting) {
+                                $settingData = [
+                                    'kPluginSetting' => $this->getDb()->getNextID('tpluginsettings', 'kPluginSetting'),
+                                    'type' => $setting['type'],
+                                    'cTitle' => $setting['title'],
+                                    'value' => $setting['initValue'],
+                                    'name' => $setting['assign'],
+                                    'kPlugin' => $nextID
+                                ];
+
+                                $settingsData = array_merge($sectionData, $settingData);
+
+                                $psType = $setting['type'];
+                                $psName = $settings['name'];
+
+                                $existingPluginEntry = $this->getDb()->query("SELECT kPluginSetting FROM tpluginsettings WHERE type = ".$psType ." AND name = ".$psName);
+                                if (empty($existingPluginEntry)) {
+                                    $this->getDb()->insertData('tpluginsettings', $settingsData);
+                                }else{
+                                    (new alert())->execute('danger','Einträge mit denselben Daten existieren bereits.');
+                                }
+                            }
+                        }
+
+
                     } else {
-                        echo "Ein Eintrag mit denselben Daten existiert bereits.";
+                        (new alert())->execute('danger','Ein Eintrag mit denselben Daten existiert bereits.');
                     }
                 } catch (Exception $e) {
-                    // echo $e;
+                    (new alert())->execute('danger',$e->getMessage());
                 }
 
 
@@ -209,6 +240,7 @@ class plugin
     {
         try {
             $this->getDb()->deleteById('tplugin','kPlugin',$_POST['kPlugin']);
+            $this->getDb()->deleteById('tpluginsettings','kPlugin',$_POST['kPlugin']);
         }catch (Exception $e){
             //echo $e;
         }
@@ -242,21 +274,22 @@ class plugin
                         }
 
                         if ($dirCount === 1) {
-                            echo 'Die ZIP-Datei wurde erfolgreich entpackt und enthält nur einen Ordner.';
+                            (new alert())->execute('success','Das Plugin wurde erfolgreich hochgeladen.');
                         } else {
-                            echo 'Die ZIP-Datei sollte nur einen Ordner im Hauptverzeichnis enthalten.';
+                            (new alert())->execute('warning','');
+                            echo 'fehlerhafte Dateistruktur des Plugins.';
                         }
                     } else {
-                        echo 'Fehler beim Entpacken der ZIP-Datei.';
+                        (new alert())->execute('warning','Fehler beim Entpacken des Plugins.');
                     }
                 } else {
-                    echo 'Bitte laden Sie eine ZIP-Datei hoch.';
+                    (new alert())->execute('danger','Bitte laden Sie eine ZIP-Datei hoch.');
                 }
             } else {
-                echo 'Es ist ein Fehler beim Hochladen der Datei aufgetreten.';
+                (new alert())->execute('danger','Es ist ein Fehler beim Hochladen der Datei aufgetreten.');
             }
         } catch (Exception $e) {
-            echo 'Es ist ein Fehler aufgetreten: ' . $e->getMessage();
+            (new alert())->execute('warning','Es ist ein Fehler aufgetreten: ' . $e->getMessage());
         }
     }
 }

@@ -28,13 +28,11 @@
             <script src="../{$includesPath}libs/codemirror/addon/hint/css-hint.js"></script>
             <link rel="stylesheet" href="{$templatePath}/assets/css/bright.css">
             <script src="../{$includesPath}libs/ckeditor/ckeditor.js"></script>
-{*            <link rel="stylesheet" type="text/css" href="../{$vendorPath}studio-42/elfinder/css/elfinder.min.css">*}
-{*            <script src="../{$vendorPath}studio-42/elfinder/js/elfinder.min.js"></script>*}
-{*            <script src="../{$vendorPath}studio-42/elfinder/main.default.js"></script>*}
             <script src="{$templatePath}/assets/js/bright.js"></script>
         </head>
     {/block}
     <body>
+{*    {if isset($adminLogin) && !empty($adminLogin) && $adminLogin === true}*}
         {block name="bright-admin-header"}
             {include file="./header.tpl"}
         {/block}
@@ -55,5 +53,8 @@
         {block name="bright-admin-footer"}
             {include file="./footer.tpl"}
         {/block}
+{*    {else}*}
+{*        {include file="../login/index.tpl"}*}
+{*    {/if}*}
     </body>
 </html>

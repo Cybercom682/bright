@@ -27,10 +27,10 @@
         {card title="Server-Informations"}
             <div class="row">
                 {foreach $serverInfo as $title => $info}
-                        <div class="col-3 d-grid">
+                        <div class="col-4 d-grid">
                             <span class="fw-bold">{$title}:</span>
                         </div>
-                        <div class="col-9 d-grid">
+                        <div class="col-8 d-grid">
                             <span>{$info}</span>
                         </div>
                 {/foreach}

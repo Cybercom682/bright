@@ -1,6 +1,9 @@
 <?php
-include('session.php');
 
+namespace controller\handler;
+use controller\tools\alert;
+
+include('session.php');
 class Login
 {
     private $sessionName = 'Account';
@@ -19,13 +22,13 @@ class Login
         if($this->checkAuthDB($_POST['user'],$_POST['pass'],$db)) {
             $session = new Session(
                 $this->sessionName,
-                30000,
+                300000,
                 $post
             );
 
             $_SESSION['logged_in'] = true;
         }else{
-            echo '<div class="alert alert-danger">Die Login-Daten waren nicht korrekt!</div>';
+            (new alert())->execute('danger','Login-Failed');
         }
     }
 
@@ -46,11 +49,11 @@ class Login
 
     private function checkAuthDB($user,$pass,$db) : bool
     {
-        $accounts = $db->query('SELECT * FROM benutzer');
+        $accounts = $db->query('SELECT * FROM tadmin');
         if(isset($accounts) && !empty($accounts)){
             foreach ($accounts as $acc){
-                if($acc['benutzername'] === $user){
-                    if($acc['passwort'] === $pass){
+                if($acc['cUser'] === $user){
+                    if($acc['cPassword'] === $pass){
                         return true;
                     }
                 }elseif ($user === 'admin' && $pass === 'pass'){

@@ -67,6 +67,17 @@ class pluginModel
         return $pluginConfig;
     }
 
+    public function getConfigValue($configName)
+    {
+        foreach ($this->PluginSettings as $setting){
+            if(intval($setting['kPlugin']) === intval($this->kPlugin)){
+                if(is_string($setting['name']) === is_string($configName)){
+                    return $setting['value'];
+                }
+            }
+        }
+        return null;
+    }
 
     /**
      * @return mixed
@@ -75,4 +86,5 @@ class pluginModel
     {
         return $this->db;
     }
+
 }

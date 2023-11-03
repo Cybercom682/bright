@@ -6,8 +6,11 @@
       <sourceFolder url="file://$MODULE_DIR$/admin/controller" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/includes/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/includes/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/includes/../admin/controller/handler" isTestSource="false" packagePrefix="handler\" />
+      <sourceFolder url="file://$MODULE_DIR$/includes/../admin/controller/interfaces" isTestSource="false" packagePrefix="interfaces\" />
+      <sourceFolder url="file://$MODULE_DIR$/includes/../admin/controller/models" isTestSource="false" packagePrefix="models\" />
+      <sourceFolder url="file://$MODULE_DIR$/includes/../admin/controller/services" isTestSource="false" packagePrefix="services\" />
+      <sourceFolder url="file://$MODULE_DIR$/includes/../admin/controller/tools" isTestSource="false" packagePrefix="tools\" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/smarty/smarty" />
       <excludeFolder url="file://$MODULE_DIR$/includes/vendor/studio-42/elfinder" />

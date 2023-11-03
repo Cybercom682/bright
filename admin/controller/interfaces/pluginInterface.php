@@ -1,8 +1,9 @@
 <?php
 
-namespace controller\services;
+namespace controller\interfaces;
 
-interface pluginService
+interface pluginInterface
 {
-public function boot();
+    public function initialize($db,$smarty);
+    public function getPlugin();
 }

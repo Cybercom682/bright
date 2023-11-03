@@ -9,15 +9,7 @@
         <widgets>
             <widget name="clock" tpl="clock"/>
         </widgets>
-        <settings>
-            <section name="Settings" type="tab">
-                <setting type="checkbox" title="Test123" initValue="Activate Plugin" sort="5">
-                    <assign value="test_activate_plugin"/>
-                </setting>
-            </section>
-        </settings>
     </backend>
     <frontend>
-
     </frontend>
 </plugin>

@@ -6,35 +6,27 @@
         licence="none"
         validate="another_way">
     <backend>
-        <widgets>
-            <widget name="clock">
-                <tpl>clock</tpl>
-            </widget>
-        </widgets>
         <settings>
             <section name="Settings" type="tab">
-                <setting type="checkbox" title="Test123" initValue="Activate Plugin" sort="5">
+                <setting type="checkbox" title="Activate Plugin" initValue="on" sort="5">
                     <assign>test_activate_plugin</assign>
                 </setting>
-                <setting type="text" title="ValueTest" initValue="Output-Value" sort="10">
-                    <assign>test_value</assign>
+                <setting type="text" title="Output-String in Frontend" initValue="Output-Value" sort="10">
+                    <assign>test_value_other</assign>
                 </setting>
-                <setting type="select" title="choose" initValue="Position" sort="10">
+                <setting type="select" title="Position" initValue="Top" sort="15">
                     <options>
                         <option value="top">Top</option>
                         <option value="bottom">Bottom</option>
                     </options>
-                    <assign>test_direction_select</assign>
+                    <assign>test_direction_select_other</assign>
                 </setting>
             </section>
             <section name="colors" type="tab">
-                <setting type="color" title="colorChecker" initValue="Set Color" sort="5">
-                    <assign>test_color</assign>
+                <setting type="color" title="colorChecker" initValue="green" sort="5">
+                    <assign>test_color_other</assign>
                 </setting>
             </section>
         </settings>
     </backend>
-    <frontend>
-        <!-- in progress -->
-    </frontend>
 </plugin>
